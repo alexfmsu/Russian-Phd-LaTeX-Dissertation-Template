@@ -276,3 +276,9 @@ TSWLatexianTemp*
 .Trashes
 ehthumbs.db
 Thumbs.db
+<<<<<<< Updated upstream
+=======
+
+__pycache__
+out
+>>>>>>> Stashed changes
