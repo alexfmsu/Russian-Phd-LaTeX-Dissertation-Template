@@ -161,6 +161,7 @@ clean:
 	"$(MAKE)" SOURCE=dissertation TARGET=dissertation clean-target
 	"$(MAKE)" SOURCE=synopsis TARGET=synopsis clean-target
 	"$(MAKE)" SOURCE=presentation TARGET=presentation clean-target
+	@rm *.aux *.bbl *.bcf *.blg *.gz *.lof *.log *.lot *.nlo *.out *.toc *.xml 2>/dev/null || true
 
 ##! полная очистка проекта от временных файлов
 distclean:
