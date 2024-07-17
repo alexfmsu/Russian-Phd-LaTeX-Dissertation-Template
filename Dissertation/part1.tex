@@ -1,1 +1,392 @@
-\chapter{Глава 1}\label{ch:ch1}
+\chapter{Коллективные осцилляции многоатомных ансамблей}\label{ch:ch1}
+В данной главе мы рассмотрим важный тип динамики --- осцилляции между возбужденным состоянием атомного ансамбля и поля, при которых вся энергия системы переходит от атомов к полю и обратно с большой амплитудой. В многоатомном ансамбле имеется множество состояний, по которым амплитуда распределяется в ходе процесса так, что ее концентрация на строго неравновесных состояниях не является очевидной и не может быть непосредственно выведена из вида гамильтониана. Само существование таких осцилляций не следует естественным образом из подобных осцилляций Раби для одного атома \cite{rabi_1,rabi_2,rabi_3,rabi_4}. В случае сложных систем такие осцилляции могут быть проанализированы только в результате численного компьютерного и суперкомпьютерного моделирования.
+
+\section{Постановка задачи}\label{sec:ch1/sec1}
+\noindent Пусть ансамбль двухуровневых атомов разделен на две равные половины $A_1$ и $A_2$ с номерами $1,2,...,n/2$ и $(n/2+1),\dots,n$ соответственно и первоначально в полости находится $m$ фотонов (<<накачка>>).
+\\[12pt]
+Рассмотрим два состояния
+\begin{equation}\label{main}
+	\begin{split}
+		|\Psi_0\ra=|m\ra_{\mathrm{ph}}|0\dots0\ra_{\mathrm{A_{1}}} |1\dots1\ra_{\mathrm{A_{2}}},\\
+		|\Psi_1\ra=|m\ra_{\mathrm{ph}}|1\dots1\ra_{\mathrm{A_{1}}} |0\dots0\ra_{\mathrm{A_{2}}}.
+	\end{split}
+\end{equation}
+Переходы между этими состояниями в ходе унитарной динамики называются \textbf{ансамблевыми осцилляциями}. Качество таких осцилляций определяется естественным образом с помощью функций 
+\begin{equation}
+	\begin{split}
+		\displaystyle f_0(t)=|\la \Psi_0 |\Psi(t)\ra |^2,\\f_1(t)=|\la \Psi_1 |\Psi(t)\ra |^2,
+	\end{split}
+\end{equation}
+соответствующих вероятностям получения данных состояний при измерении состояния $|\Psi(t)\ra$ системы в момент времени $t$. В случае неунитарной динамики смешанного состояния $\rho(t)$ вместо функций $f_0, \ f_1$ следует использовать \textbf{функции согласованности (fidelity, или точность Ульмана-Йожи --- Uhlmann-Jozsa fidelity \cite{fidelity_1,fidelity_2,fidelity_3,fidelity_4})}
+\[
+F_0(t)=\biggl(Tr\sqrt{\sqrt{\rho_0}\ \rho(t)\ \sqrt{\rho_0}}\biggr)^{2}
+\]
+\begin{center}и\end{center}
+\[
+F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
+\]
+соответственно, где $\rho_0=|\Psi_0\ra\la\Psi_0|,\ \rho_1=|\Psi_1\ra\la\Psi_1|$. 
+
+Периодический повтор во времени состояний с близкими к единице показателями качества является критерием наличия ансамблевых осцилляций. Такие точки мы называем \textbf{пиковыми}. Важна также резкость осцилляций --- скорость изменения функции качества в окрестности пиковых точек. Из вида гамильтониана TC вытекает, что вектор чистого состояния при унитарной динамике меняется в пределах подпространства, порожденного базисными состояниями вида $|m\ra_{\mathrm{ph}}|n_1\ra_{\mathrm{A_{1}}}|n_2\ra_{\mathrm{A_{2}}}$, такими что $m+ n_{1}+n_{2}=p$. Его размерность растет экспоненциально от $p$, и потому само существование ансамблевых осцилляций, в отличие от осцилляций Раби \cite{rabi_1,rabi_2,rabi_3,rabi_4}, является совершенно не тривиальным фактом. 
+
+Мы исследуем специфику таких осцилляций, а также промоделируем эф­фект их возрождения в системе двух взаимодействующих полостей.
+
+\section{Выбор базиса, построение гамильтониана}\label{sec:ch1/sec2}
+Пусть $\mathrm{A} = \{1, 2, \dots, n\}$ --- множество идентичных двухуровневых атомов, $J(\mathrm{A})$ --- множество их классических базисных состояний. Определим равномерное состояние атомов из $\mathrm{A}$ как
+\begin{equation}
+	\label{1.1}
+	\{k_{\mathrm{A}}\Succ\footnote{для обозначений $\{\mathlarger{\Succ}$, $\mathlarger{\Prec}\}$ будем использовать кет-бра формализм} = \frac{1}{\sqrt{C_{n}^{k}}}\sum_{j \in J(\mathrm{A}):\ w(j) = k}|j\ra,
+\end{equation}
+где $w(j)$ --- вес Хэмминга двоичного кортежа $j$, равный числу единиц в нем, что соответствует количеству возбужденных атомов в состоянии $|j\ra$. 
+Отметим также, что введенные таким образом многоатомные состояния взаимно ортогональны в силу того, что не имеют общих базисных компонент.
+
+Пусть $\mathcal{L}_{\mathrm{A}}$ --- линейная оболочка состояний вида $|\mathrm{ph}\ra\{k_{\mathrm{A}}\Succ\ \ \forall k = \overline{0,|\mathrm{A}|},\  \mathrm{ph} = 0, 1, ...$, где $|\mathrm{ph}\ra$ --- фоковское состояние поля \cite{landau,belousov,messia} (число фотонов) в полости оптического резонатора. Рассмотрим ограничение $\tilde{H}_{\mathrm{TC}}^{\mathrm{A}}$ гамильтониана Тависа-Каммингса $H_{\mathrm{TC}}$ на подпространство $\mathcal{L}_{\mathrm{A}}$. Этот гамильтониан может быть представлен в новом базисе, состоящем из равномерных состояний. Его матрица будет иметь вид
+\begin{equation}
+	\label{1.2}
+	\tilde{H}_{i_{\mathrm{ph}}i_{\mathrm{A}}j_{\mathrm{ph}}j_{\mathrm{A}}} = \Prec i_{\mathrm{A}}\}\la i_{\mathrm{ph}}| H_{\mathrm{TC}} | j_{\mathrm{ph}} \ra \{j_{\mathrm{A}}\Succ,
+\end{equation}
+где $i_{\mathrm{ph}}, i_{\mathrm{A}}$ и $j_{\mathrm{ph}}, j_{\mathrm{A}}$ --- начальное и конечное число фотонов и атомных возбуждений соответственно. Отметим также, что ненулевые элементы этой матрицы должны удовлетворять условию
+\begin{equation}
+	\label{1.3}
+	i_{\mathrm{ph}} - j_{\mathrm{ph}} = i_{\mathrm{A}} - j_{\mathrm{A}} = \pm 1,
+\end{equation}
+поскольку взаимодействие атомов с модой электромагнитного поля резонатора осуществляется без потерь.
+
+Выразим эти элементы через числа
+\begin{equation}
+	\label{1.4}
+	p = \mathrm{min}(i_{\mathrm{ph}}, j_{\mathrm{ph}}),\quad a = \mathrm{min}(i_{\mathrm{A}}, j_{\mathrm{A}}).
+\end{equation}
+
+Тогда имеем
+\begin{equation}
+	\label{1.5}
+	\tilde{H}_{i_{\mathrm{ph}}i_{\mathrm{A}}j_{\mathrm{ph}}j_{\mathrm{A}}} = 
+	\begin{cases}
+		\hbar w(p+a), & \text{если $i_{\mathrm{A}} = j_{\mathrm{A}}, i_{\mathrm{ph}} = j_{\mathrm{ph}}$,} \\
+		g(n-a)C_{n}^{a}\sqrt{\cfrac{p+1}{C_{n}^{a}C_{n}^{a+1}}}, & \text{в противном случае.}
+	\end{cases}
+\end{equation}
+
+Значение $\hbar w(p+a)$ соответствует диагональным элементам и равно энергии данного состояния (<<поле>>+<<атомы>>).
+
+Для второго равенства:
+\begin{itemize}
+	\item[$\diamond$]{
+		коэффициент $\sqrt{p+1}$ следует из вида операторов рождения/уничтожения фотонов: 
+		\begin{itemize}
+			\item{$p = \mathrm{min}(i_{\mathrm{ph}}, j_{\mathrm{ph}})$,}
+			\item{$a^{+}|\mathrm{ph}\ra = \sqrt{\mathrm{ph} + 1}|\mathrm{ph} + 1\ra$,}
+			\item{$a|\mathrm{ph}\ra = \sqrt{\mathrm{ph}}|\mathrm{ph-1}\ra$,}
+		\end{itemize}
+	}
+	\item[$\diamond$]{ 
+		произведение биномиальных коэффициентов $C_{n}^{a}C_{n}^{a+1}$ берется из нормировочных констант в определении 	равномерных состояний (\ref{1.1})},
+	\item[$\diamond$]{
+		коэффициент $(n-a)$ есть число слагаемых в сумме, равное числу возможных атомов, релаксирующих в данном процессе.}
+\end{itemize}
+
+Так, для системы из $n$ идентичных двухуровневых атомов можно ввести состояние атомного ансамбля --- состояние $|k_{1}k_{2}\dots k_{n}\ra$ с уровнями $\{0\Succ, \{1\Succ, \dots, \{n\Succ$. Уровни будут соответствовать суммарному числу возбуждений в ансамбле и будут отстоять друг от друга на величину $E_{k} - E_{k-1} = \hbar w,\ k = \overline{1,n}$.
+
+В последующих главах мы будем рассматривать квантовую динамику в приближении RWA \cite{ozhigov_qq, rwa_1, rwa_2} состояний вида $|\Psi_0\ra=|m\ra_{\mathrm{ph}}|0\dots0\ra_{\mathrm{A_{1}}} |1\dots1\ra_{\mathrm{A_{2}}}$ в базисе $|m\ra_{\mathrm{ph}}\{i,j\Succ_{\mathrm{at}}$, где
+\\
+\null\qquad$|m\ra_{\mathrm{ph}}$ --- начальное фоковское (либо вакуумное) состояние поля \cite{landau,belousov,messia},
+\\[6pt]
+\null\qquad$\{i,j\Succ_{\mathrm{at}}\!=\!\{i\Succ_{\mathrm{A_{1}}}\{j\Succ_{\mathrm{A_{2}}}$ --- состояние (энергия возбуждения) атомных групп.
+\
+\\[0pt]
+\indent При начальном состоянии системы $|\Psi_0\ra=|m\ra_{\mathrm{ph}}|0\dots0\ra_{\mathrm{A_{1}}} |1\dots1\ra_{\mathrm{A_{2}}}$ через определенный промежуток времени вся амплитуда возбуждений второй группы атомов сконцентрируется на возбуждении первой группы атомов --- состоянии $|\Psi_1\ra=|m\ra_{\mathrm{ph}}|1\dots1\ra_{\mathrm{A_{1}}} |0\dots0\ra_{\mathrm{A_{2}}}$, и данный процесс будет повторяться. Таким образом, мы получим картину коллективных атомных осцилляций ({\color{red}рис. 1.1, 1.2, 1.3, 1.5}), аналогичных осцилляциям Раби для одного атома \cite{rabi_1,rabi_2,rabi_3,rabi_4}. Причина такого поведения кроется в интерференции амплитуд: для состояний вида $|m\ra_{\mathrm{ph}}\{i,j\Succ_{\mathrm{at}}$, отличных от $|\Psi_{0}\ra$ и $|\Psi_{1}\ra$, их амплитуда будет распределяться по всем этим состояниям, снижая тем самым вероятность нахождения системы в каждом из них. Данное свойство позволяет в перспективе создать процедуру переноса многокубитного квантового состояния на некоторое удаленное расстояние весьма простым способом.
+
+Отметим также, что с увеличением фотонной накачки пики амплитуд состояний $|\Psi_{0}\ra$ и $|\Psi_{1}\ra$ будут становиться все более резкими ({\color{red}рис. 1.1, 1.2, 1.3}): первоначальные, или свободные, фотоны в полости будут способствовать процессу осцилляций атомных групп.
+
+В заключение главы мы также рассмотрим данную динамику в условиях, когда атомные группы разделены между полостями, взаимодействующими между собой посредством оптического волновода. Обнаруженное явление перехода состояния атомного ансамбля из одной полости в другую и его возврат в первоначальную полость ({\color{red}рис. 1.13, 1.14}) носит вполне отчетливый характер.
+
+\clearpage
+\subsection{Осцилляции с накачкой фотонов}
+\vspace{-1em}
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/20_10/1g_0.05mks_1000nt/oscillations.png}\astfootnote\\
+		\includegraphics[width=0.6\textwidth]{Dissertation/images/section_1/20_10/1g_0.05mks_1000nt/fid.png}
+		\includegraphics[width=0.6\textwidth]{Dissertation/images/section_1/20_10/1g_5mks_1000nt/fid.png}
+		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
+		\\[6pt]
+		\caption{
+			Коллективные осцилляции для системы 10x10\\
+			$|\Psi_0\ra = |10\rangle_{\mathrm{ph}}\{0,10\Succ_{\mathrm{at}} = |10\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{10}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{10}\ra_{\mathrm{A}_2}$\\
+			$|\Psi_1\ra = |10\rangle_{\mathrm{ph}}\{10,0\Succ_{\mathrm{at}} = |10\ra_{\mathrm{ph}}|\protect\underbrace{1 \dots 1}_{10}\ra_{\mathrm{A}_1}|\protect\underbrace{0 \dots 0}_{10}\ra_{\mathrm{A}_2}$
+		}
+	}
+\end{figure}
+\extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
+
+\clearpage
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/50_25/1g_0.05mks_1000nt/oscillations.png}\astfootnote\\
+		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/50_25/1g_0.05mks_1000nt/fid.png}
+		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/50_25/1g_5mks_1000nt/fid.png}
+		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
+		\\[6pt]
+		\caption{
+			Коллективные осцилляции для системы 25x25\\
+			$|\Psi_0\ra = |25\rangle_{\mathrm{ph}}\{0,25\Succ_{\mathrm{at}} = |25\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{25}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{25}\ra_{\mathrm{A}_2}$\\
+			$|\Psi_1\ra = |25\rangle_{\mathrm{ph}}\{25,0\Succ_{\mathrm{at}} = |25\ra_{\mathrm{ph}}|\protect\underbrace{1 \dots 1}_{25}\ra_{\mathrm{A}_1}|\protect\underbrace{0 \dots 0}_{25}\ra_{\mathrm{A}_2}$
+	}}
+\end{figure}
+\extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
+
+\clearpage
+\subsection{Осцилляции произвольных атомных ансамблей}
+Произвольные состояния вида 
+\begin{equation}\label{good_ensemble}
+	\alpha|0\dots0\ra_{\mathrm{A}_1}|1\dots1\ra_{\mathrm{A}_2} + \beta|1\dots1\ra_{\mathrm{A}_1}|0\dots0\ra_{\mathrm{A}_2}
+\end{equation}
+дают осцилляции хорошего качества в условиях фотонной накачки.
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.6\textwidth]{Dissertation/images/section_1/20_10/random/1g_0.05mks_1000nt/oscillations.png}\astfootnote\\
+		\includegraphics[width=0.5\textwidth]{Dissertation/images/section_1/20_10/random/1g_0.05mks_1000nt/fidelity.png}
+		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
+		\\[18pt]
+		\caption{
+			Коллективные осцилляции\\произвольных атомных ансамблей\\
+			$|\Psi_0\ra=|10\ra_{\mathrm{ph}}\otimes(\alpha\{0\Succ_{\mathrm{A}_1}\{10\Succ_{\mathrm{A}_2}+\beta\{10\Succ_{\mathrm{A}_1}\{0\Succ_{\mathrm{A}_2})$\\
+			$|\Psi_1\ra=|10\ra_{\mathrm{ph}}\otimes(\alpha\{10\Succ_{\mathrm{A}_1}\{0\Succ_{\mathrm{A}_2}+\beta\{0\Succ_{\mathrm{A}_1}\{10\Succ_{\mathrm{A}_2})$\\
+			$\alpha=0.293+0.245i,\quad\beta=0.204+0.901i$
+	}}
+\end{figure}
+\extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
+
+\clearpage
+Произвольные начальные состояния вида
+\[
+|\Psi_{0}\ra = |m\ra_{\text{ph}}\sum_{\substack{\forall\lambda_{k}:~\sum_{k} \lambda_{k} = 1,\\ i,j:~i+j = 2n}}\lambda_{k}\{i\Succ_{\mathrm{A_{1}}}\{j\Succ_{\mathrm{A_{2}}},
+\]
+отличные от состояний \eqref{good_ensemble}, не осциллируют.
+
+\begin{figure}[ht!]
+	\noindent\centering{
+		\includegraphics[width=0.5\textwidth]{Dissertation/images/section_1/bad_random_5.png}\astfootnote\\
+		\includegraphics[width=0.5\textwidth]{Dissertation/images/section_1/bad_random_10.png}\astfootnote\\
+		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
+		\\[18pt]
+		\caption{
+			Отсутствие осцилляций групп\\с произвольно выбранными в них изначальных\\количествах атомных возбуждений
+	}}
+\end{figure}
+\extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
+
+\clearpage
+\subsection{Осцилляции без накачки фотонов: коллапсы и возрождения ансамблевых состояний}
+\vspace{-2em}
+\noindent Унитарная динамика базисных состояний 
+\[
+\begin{split}
+	|\Psi_0\ra = |0\ra_{\mathrm{ph}}\{0,n\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}\{0\Succ_{\mathrm{A}_1}\{n\Succ_{\mathrm{A}_2} = |0\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{n}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{n}\ra_{\mathrm{A}_2},\\
+	|\Psi_1\ra = |0\ra_{\mathrm{ph}}\{n,0\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}\{n\Succ_{\mathrm{A}_1}\{0\Succ_{\mathrm{A}_2} = |0\ra_{\mathrm{ph}}|\protect\underbrace{1 \dots 1}_{n}\ra_{\mathrm{A}_1}|\protect\underbrace{0 \dots 0}_{n}\ra_{\mathrm{A}_2}\ 
+\end{split}
+\] в отсутствие свободных фотонов в полости будет сопровождаться периодическими коллапсами и возрождениями состояний: пиковые значения меры близости $f(t_{rev})=|\la \Psi_0 |\Psi(t_{rev})\ra|^2$ начального $|\Psi_0\ra$ и <<возрожденного>> начального состояния $|\Psi(t_{rev})\ra$ в момент времени $t_{rev}$ близки к 1.
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.54\textwidth]{Dissertation/images/section_1/5_5/1g_0.25mks_1000nt/oscillations.png}\astfootnote\\
+		\includegraphics[width=0.49\textwidth]{Dissertation/images/section_1/5_5/1g_0.25mks_1000nt/fid.png}
+		\includegraphics[width=0.49\textwidth]{Dissertation/images/section_1/5_5/1g_5mks_1000nt/fid.png}
+		\captionsetup{format=hang,width=0.85\textwidth,justification=centering,singlelinecheck=no}
+		\\[6pt]
+		\caption{
+			Коллапсы и возрождения ансамблевых состояний\\
+			$|\Psi_0\ra = |0\ra_{\mathrm{ph}}\{0,5\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{5}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{5}\ra_{\mathrm{A}_2}$\\
+			$|\Psi_1\ra = |0\ra_{\mathrm{ph}}\{5,0\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{1 \dots 1}_{5}\ra_{\mathrm{A}_1}|\protect\underbrace{0 \dots 0}_{5}\ra_{\mathrm{A}_2}$
+	}}
+\end{figure}
+\extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
+
+\clearpage
+\subsection{Зависимость качества осцилляций от числа атомов и силы взаимодействия с полем}
+Следующие графики демонстрируют зависимость качества осцилляций от различных параметров квантовой системы.
+\\[12pt]
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.95\textwidth]{Dissertation/images/section_1/bp_n/ph/1_5_15.png}
+		\includegraphics[width=0.95\textwidth]{Dissertation/images/section_1/bp_n/ph/1_15.png}
+		\captionsetup{format=hang,width=0.85\textwidth,justification=centering,singlelinecheck=no}
+		\caption{
+			Снижение пиковых амплитуд и нарушение\\периодичности осцилляций при увеличении числа атомов в группе\\
+			$|\Psi_0\ra=|\mathrm{0}\ra_{\mathrm{ph}}\{0,n\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{n}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{n}\ra_{\mathrm{A}_2}$\\
+			$|\Psi_1\ra=|\mathrm{0}\ra_{\mathrm{ph}}\{n,0\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{1 \dots 1}_{n}\ra_{\mathrm{A}_1}|\protect\underbrace{0 \dots 0}_{n}\ra_{\mathrm{A}_2}$
+	}}
+\end{figure}
+
+\clearpage
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.45\textwidth]{Dissertation/images/section_1/Tk/Tgk_10_015_10000.png}
+		\includegraphics[width=0.45\textwidth]{Dissertation/images/section_1/Tk/Tgk_20_015_10000.png}\\
+		\hspace{24pt}$n = 10$\hspace{190pt}$n = 20$\\[12pt]
+		\includegraphics[width=0.45\textwidth]{Dissertation/images/section_1/Tk/Tgk_30_015_10000.png}\\
+		\hspace{24pt}$n = 30$\\[12pt]
+		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
+		\caption{
+			Зависимость периода осцилляций от силы взаимодействия $g$ и первоначального числа $m$ фотонов в полости\\
+			$|\Psi_0\ra=|m\ra_{\mathrm{ph}}\{0,n\Succ_{\mathrm{at}} = |m\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{n}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{n}\ra_{\mathrm{A}_2}$\\
+			$|\Psi_1\ra=|m\ra_{\mathrm{ph}}\{n,0\Succ_{\mathrm{at}} = |m\ra_{\mathrm{ph}}|\protect\underbrace{1 \dots 1}_{n}\ra_{\mathrm{A}_1}|\protect\underbrace{0 \dots 0}_{n}\ra_{\mathrm{A}_2}$
+		}
+	}
+\end{figure}
+
+Увеличение силы взаимодействия $g$ атомов с полем, равно как и усиление фотонной накачки $m$, приводит к существенному уменьшению периода осцилляций. При стремлении $g$ к нулю период осцилляций стремится к бесконечности (значение $g=0$ означает отсутствие взаимодействия между атомами и полем).
+
+\clearpage
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.55\textwidth]{Dissertation/images/section_1/Tk/02_10000_3.png}\\
+		\hspace{-5em}\small{период осцилляций $\mathrm{T=3~ns = const}$}
+		\\[36pt]
+		\includegraphics[width=0.55\textwidth]{Dissertation/images/section_1/Tk/015_10000_10.png}\\
+		\hspace{-5em}\small{период осцилляций $\mathrm{T=10~ns = const}$}
+		\\[18pt]
+		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
+		\caption{Удлинение периода осцилляций при уменьшении силы взаимодействия $g$ атомов с полем может быть скомпенсировано увеличением числа $n$ атомов в группе и усилением фотонной накачки
+		}
+	}
+\end{figure}
+
+Представленные изочастотные графики, соответствующие периодам осцилляций $\mathrm{T=3~ns}$ и $\mathrm{T=10~ns}$ для $n=10,~20,~30$ атомов в группе демонстрируют возможность наращивания числа атомов, а также возможность уменьшения силы взаимодействия атомов с полем с одновременным сохранением периода осцилляций.
+
+\clearpage
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.8\textwidth]{Dissertation/images/section_1/Tk/g_10_015_10000_edit.png}
+		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
+		\caption{Зависимость периода осцилляций от\\первоначального числа $m$ фотонов в полости для 10 атомов\\в группе при различных значениях $g$\\[12pt]
+			Начальное состояние: $|\Psi_0\ra=|m\ra_{\mathrm{ph}}\{0,10\Succ_{\mathrm{at}} = |m\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{10}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{10}\ra_{\mathrm{A}_2}$
+	}}
+\end{figure}
+
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.8\textwidth]{Dissertation/images/section_1/Tk/g_20_015_10000_edit.png}
+		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
+		\caption{Зависимость периода осцилляций от\\первоначального числа $m$ фотонов в полости для 20 атомов\\в группе при различных значениях $g$\\[12pt]
+			Начальное состояние: $|\Psi_0\ra=|m\ra_{\mathrm{ph}}\{0,20\Succ_{\mathrm{at}} = |m\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{20}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{20}\ra_{\mathrm{A}_2}$
+	}}
+\end{figure}
+
+Увеличение фотонной накачки в полости резонатора сопровождается асимптотическим стремлением к нулю периода осцилляций при различных значениях силы взаимодействия атомов с полем в границах RWA-приближения \cite{ozhigov_qq, rwa_1, rwa_2}.
+
+\clearpage
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/bp_n/ph/w.png}
+		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/bp_n/ph/h.png}
+		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/bp_n/ph/w_h.png}
+		\captionsetup{format=hang,width=1.0\textwidth,justification=centering,singlelinecheck=no}
+		\caption{Зависимость средних значений ширины основания\\и высоты пика квадрата амплитуды <<возрожденного>>\\начального состояния от числа $n$ атомов в группе.\\[12pt]Начальное состояние: $|\Psi_0\ra=|\mathrm{0}\ra_{\mathrm{ph}}\{0,n\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{n}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{n}\ra_{\mathrm{A}_2}$
+	}}
+\end{figure}
+
+Наблюдается уменьшение средних значений ширины основания и высоты пика осцилляций при увеличении числа атомов в группе. Их отношение близко к константе.
+
+\clearpage
+\subsection{Модель Тависа-Каммингса: взаимодействие с внешним окружением}
+
+Рассмотрим модель Тависа-Каммингса в приближении RWA \cite{ozhigov_qq, rwa_1, rwa_2} для $n$ двухуровневых атомов, имеющих разные координаты внутри полости. Пусть энергии возбуждения атомов равны $\hbar w_{a_{i}}$ и отличаются от энергии фотонов $\hbar w_{c}$ малой расстройкой $d_i=|\hbar w_{c}-\hbar w_{a_{i}}|$. Гамильтониан такой системы имеет вид
+\begin{equation}
+	\label{TC}
+	H_{\text{TC}}^{\text{RWA}}=\hbar w_{c} a^+a+\hbar \sum\limits_{i=1}^{n}w_{a_{i}}\s^{+}_i\s_i+a\bar\s^{+}+a^{+}\bar\s,
+\end{equation}
+где $\bar\s=\sum\limits_{i=1}^{n}g_{i}\s_{i}$, $\bar\s^{+}=\sum\limits_{i=1}^ng_{i}\s^{+}_{i}$ --- соответствующие операторы коллективной релаксации и возбуждения группы атомов, силы взаимодействия которых с полем $g_{1},g_{2},\dots,g_{n}$, вообще говоря, различны. 
+
+Реальный резонатор находится в контакте с внешней средой, которая в простейшем случае имеет вид одномодового фотонного резервуара с фиксированной температурой на моде полости. Контакт предполагает возможность обмена фотонами частоты $w_{c}$ между внешней средой и полостью. 
+
+Рассмотрим простейший случай нулевой температуры на моде полости, при котором во внешнем резервуаре нет фотонов и такой контакт ведет к постоянной утечке фотонов из полости. Если $\rho(t)$ --- матрица плотности системы <<поле + атомы>>, то ее динамика в указанном случае описывается основным квантовым уравнением \cite{breuer}:
+\begin{equation}\label{lindblad}
+	\begin{gathered}
+		i\hbar\dot{\rho}={\mathcal{L}}(\rho),\\
+		{\mathcal{L}}(\rho)=-\frac{i}{\hbar}[H,\rho]+\frac{1}{\hbar}L(\rho),\\
+		L(\rho)=\gamma\biggl(a\rho a^+-\frac{1}{2}\{a^+a,\rho\}\biggr),
+	\end{gathered}
+\end{equation}
+где  $H=H_{\text{TC}}^{\text{RWA}}$, $\gamma$ --- параметр, отвечающий за интенсивность линдбладовского процесса, $L(\rho)=\gamma\bigl(a\rho a^{+}-\frac{1}{2}\{a^{+}a,\rho\}\bigr)$ --- оператор Линдблада, соответствующий утечке фотона, которая выражается оператором уничтожения фотона $a$ \cite{breuer,photon_emission}. 
+
+Мы будем исследовать динамику состояния атомов и поля, идущую задолго до наступления термической стабилизации, рассматривая обмен фотонами с внешним резурвуаром как фактор декогерентности.
+
+\clearpage
+\subsection{Осцилляции c утечкой фотонов из полости}
+Характерная картина ансамблевых осцилляций сохраняется при условии, когда резонатор находится в контакте с внешней средой, приводящем к постоянной утечке фотонов из полости.
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/bpl/5_5_1000ns.png}\astfootnote\\
+		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/bpl/5_5_5mks_fid.png}
+		\captionsetup{format=hang,width=0.75\textwidth,justification=centering,singlelinecheck=no}
+		\\[12pt]
+		\caption{
+			Осцилляции c утечкой фотонов из полости\\
+			$|\Psi_0\ra=|0\ra_{\mathrm{ph}}\{0,5\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{5}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{5}\ra_{\mathrm{A}_2}$\\
+			$|\Psi_1\ra=|0\ra_{\mathrm{ph}}\{5,0\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{1 \dots 1}_{5}\ra_{\mathrm{A}_1}|\protect\underbrace{0 \dots 0}_{5}\ra_{\mathrm{A}_2}$
+	}}
+\end{figure}
+\extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
+
+\subsection{Возрождение состояний атомных ансамблей в системе оптических полостей}
+Группы атомов $\mathrm{A}_1$ и $\mathrm{A}_2$, распределенные между полостями, дают хорошие осцилляции при достаточно большой амплитуде $\mu$ перехода возбуждений между полостями ($\mu>g$). 
+\\[12pt]
+Моделирование следующей динамики проводилось для 10 атомов в каждой полости при $\mu \approx 3.5g$.
+\\[12pt]
+Начальное состояние $|\Psi_0\ra=|\mathrm{vac}\ra_{\mathrm{ph}_\mathrm{I}}|\mathrm{vac}\ra_{\mathrm{ph}_{\mathrm{II}}}\{0, n\Succ_{\mathrm{at}}$, где
+\\
+\indent$|\mathrm{vac}\ra_{\mathrm{ph}_\mathrm{I}}$ --- начальное вакуумное состояние поля I полости,
+\\[6pt]
+\indent$|\mathrm{vac}\ra_{\mathrm{ph}_{\mathrm{II}}}$ --- начальное вакуумное состояние поля II полости,
+\\[6pt]
+\indent$\{i,j\Succ_{\mathrm{at}} = \{i\Succ_{\mathrm{I}}\{j\Succ_{\mathrm{II}}$ --- состояние атомных групп $\mathrm{A}_1, \mathrm{A}_2$.
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.55\textwidth]{Dissertation/images/section_1/bp2/10_10_250ns.png}
+		\includegraphics[width=0.5\textwidth]{Dissertation/images/section_1/bp2/10_10_250ns_fid.png}
+		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
+		\\[6pt]
+		\caption{$|\Psi_0\ra=|\mathrm{vac}\ra_{\mathrm{ph}_\mathrm{I}}|\mathrm{vac}\ra_{\mathrm{ph}_{\mathrm{II}}}\{0\Succ_{\mathrm{I}}\{10\Succ_{\mathrm{II}}$\\
+			коллапсы и возрождения ансамблевых\\состояний между полостями
+	}}
+\end{figure}
+
+\clearpage
+Для 20 атомов в группе была численно найдена граница возникновения осцилляций: амплитуда перехода возбуждений между полостями, равная $\mu \approx 5g$.
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/bp2/20_20_250ns.png}
+		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/bp2/20_20_250ns_fid.png}
+		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
+		\\[12pt]
+		\caption{$|\Psi_0\ra=|\mathrm{vac}\ra_{\mathrm{ph}_\mathrm{I}}|\mathrm{vac}\ra_{\mathrm{ph}_{\mathrm{II}}}\{0\Succ_{\mathrm{I}}\{20\Succ_{\mathrm{II}}$\\
+			высокое качество осцилляций, близкое к 0.8,\\
+			коллапсы и возрождения ансамблевых состояний}}
+\end{figure}
+
+Фактически такое возрождение квантовых состояний является прямым аналогом эффекта, обнаруженного и продемонстрированного экспериментально группой С. Моисеева \cite{moiseev_1,moiseev_2,moiseev_3,moiseev_4}, --- процесса поглощения пучка фотонов средой с последующим возвратом средой энергии в виде фотонного эха. Такого рода эхо представляет собой важный феномен, поскольку его можно использовать в качестве механизма организации временной квантовой памяти.
+
+\clearpage
+\subsection{Выводы главы}
+В настоящей главе была рассмотрена динамика квантовых состояний ансамблей двухуровневых атомов и одномодового поля в резонаторе в рамках модели Тависа-Каммингса, а также модели Тависа-Каммингса-Хаббарда для случая двух взаимодействующих полостей в приближении RWA.
+
+По результатам компьютерного моделирования:
+\begin{itemize}
+	\item{установлен резкий характер коллективных осцилляций между двумя группами атомов равной численности и равной силы взаимодействия атомов с полем,}
+	\item{установлено, что резкость осцилляций в ансамбле с четным числом атомов предсказуемо растет с увеличением фотонной накачки в полости и намного превосходит резкость осцилляций Раби для одного атома},
+	\item{численно найдена зависимость качества осцилляций от силы взаимодействия атомов с полем. Показано, что удлинение периода осцилляций при уменьшении силы взаимодействия может быть скомпенсировано увеличением числа атомов в группе и усилением фотонной накачки,}
+	\item{обнаружено хорошо регистрируемое <<квантовое эхо>>: переход состояния атомного ансамбля из одной полости в другую и возврат этого
+состояния в первоначальную полость. Установлено высокое качество такого эха. Была установлена граница его возникновения, выражающаяся через соотношение интенсивности перехода фотонов между полостями и силы взаимодействия атомов с полем, равная $\mu \approx 3.5g$ для 10 атомов и $\mu \approx 5g$ для 20 атомов в каждой полости.}
+\end{itemize}
+
+\indent Результаты, полученные для ансамблей, состоящих из 20 и более атомов в группе, необходимых для уверенной фиксации выявленного характера осцил­ляций, потребовали моделирования динамики как чистых, так и смешанных квантовых состояний и не могут быть получены на персональном компью­тере. Моделирование квантовой динамики производилось на графических процессорах (GPU) суперкомпьютера Ломоносов с применением технологии па­раллельных вычислений CUDA, а также пакета матричной алгебры MAGMA (Matrix Algebra on GPU and Multicore Architectures) \cite{magma}.
+\\[12pt]
+\noindent Листинг программной реализации представлен в \hyperref[appendix]{приложении}.
+
+\nocite{dat_plenio}
+\nocite{ambainis}
+\nocite{vynberg}
+\nocite{pkok}
+\nocite{jaynes_cummings_comparison}
+\nocite{vibrations_quanta_biology}
