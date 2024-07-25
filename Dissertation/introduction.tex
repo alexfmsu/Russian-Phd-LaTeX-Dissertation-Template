@@ -255,7 +255,7 @@ $|0\ra$ -- основное состояние,
 	$|w_{c}-w_{a_{i}}|\ll w_{c}+w_{a_{i}} \quad\forall i = \overline{1,N}$: условие применимости модели TС, означающее достаточное время жизни фотона внутри полости.
 \end{quote}
 
-\indent Аналогичным образом, пренебрегая членами $\displaystyle{\sigma_{i}^{+}a^{+}}$ и $\displaystyle{\sigma_{i} a}$, не сохраняющими энергию, запишем гамильтониан TC в приближении RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq}:
+\indent Аналогичным образом, пренебрегая членами $\displaystyle{\s_{i}^{+}a^{+}}$ и $\displaystyle{\s_{i} a}$, не сохраняющими энергию, запишем гамильтониан TC в приближении RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq}:
 \begin{equation}
 	H_{\text{TC}}^{\text{RWA}} = \underbrace{\hbar w_{c}\ a^{+}a}_{\textstyle H_{field}} + \hbar\underbrace{\sum_{i=1}^N{w_{a_{i}}\s_{i}^+\s_{i}}}_{\textstyle H_{atoms}} + \underbrace{\sum_{i=1}^N{g_{i}(\s_{i}^{+}a+\s_{i}a^{+})}}_{\textstyle H_{interaction}},
 \end{equation}
@@ -285,20 +285,20 @@ $|0\ra$ -- основное состояние,
 
 Такая система описывается моделью Джейнса-Каммингса-Хаббарда \cite{jch_time_evolution,jch_site_dependent_control,jch_quench_dynamics} и ее гамильтониан имеет следующий вид:
 \[
-H_{\text{JCH}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_{j}}\ a_j^+a_{j}}_{\textstyle H_{field}}~+~\underbrace{\hbar w_{a_{j}}{\sigma_{j}^+\sigma_{j}}}_{\textstyle H_{atom}}~+~\underbrace{g_j{(\sigma_{j}^{+}+\sigma_{j})(a_{j}^{+}+a_{j})}}_{\textstyle H_{interaction}} \right)
+H_{\text{JCH}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_{j}}\ a_j^+a_{j}}_{\textstyle H_{field}}~+~\underbrace{\hbar w_{a_{j}}{\s_{j}^+\s_{j}}}_{\textstyle H_{atom}}~+~\underbrace{g_j{(\s_{j}^{+}+\s_{j})(a_{j}^{+}+a_{j})}}_{\textstyle H_{interaction}} \right)
 \]
 \begin{equation}
 	+k_{j,j+1}\sum_{j=1}^{J-1}{\left(a_{j+1}^+a_j+a_{j}^+a_{j+1}\right)},
 \end{equation}
 \begin{quote}
 	$J$ -- количество взаимодействующих полостей (члены с индексом $j$ соответствуют $j$-й полости),\\
-	$\sigma_{j}^{+},\sigma_{j}$ -- операторы возбуждения/релаксакции атома в $j$-й полости,\\
+	$\s_{j}^{+},\s_{j}$ -- операторы возбуждения/релаксакции атома в $j$-й полости,\\
 	$k_{j,j+1}$ -- интенсивность перелета фотона между $j$-й и $(j+1)$-й поло­стями.
 \end{quote}
 
 В приближении вращающейся волны (RWA) \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq} гамильтониан JCH определяется естественным образом:
 \[
-H_{\text{JCH}}^{\text{RWA}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_j}\ a_j^+a_j}_{\textstyle H_{field}}~+~\underbrace{\hbar w_{a_j}{\sigma_{j}^+\sigma_{j}}}_{\textstyle H_{atom}}~+~\underbrace{g_j{(\sigma_{j}^+a_j+\sigma_{j}a_j^+)}}_{\textstyle H_{interaction}} \right)
+H_{\text{JCH}}^{\text{RWA}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_j}\ a_j^+a_j}_{\textstyle H_{field}}~+~\underbrace{\hbar w_{a_j}{\s_{j}^+\s_{j}}}_{\textstyle H_{atom}}~+~\underbrace{g_j{(\s_{j}^+a_j+\s_{j}a_j^+)}}_{\textstyle H_{interaction}} \right)
 \]
 
 \begin{equation}
@@ -319,7 +319,7 @@ H_{\text{JCH}}^{\text{RWA}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_j}\ a_j^
 
 Такая система описывается моделью Тависа-Каммингса-Хаббарда \cite{tch_photon_blockade,tch_transfer,tch_quality} и ее га­мильтониан имеет следующий вид:
 \[
-H_{\text{TCH}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_{j}}\ a_j^+a_{j}}_{\textstyle H_{field}}~+~\underbrace{\hbar w_{a_{j}}\sum_{j_{i}=1}^{N_{j}}{\sigma_{j_i}^+\sigma_{j_i}}}_{\textstyle H_{atoms}}~+~\underbrace{\sum_{j_{i}=1}^{N_{j}}g_{j_i}{(\sigma_{j_i}^{+}+\sigma_{j_i})(a_{j}^{+}+a_{j})}}_{\textstyle H_{interaction}} \right)
+H_{\text{TCH}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_{j}}\ a_j^+a_{j}}_{\textstyle H_{field}}~+~\underbrace{\hbar w_{a_{j}}\sum_{j_{i}=1}^{N_{j}}{\s_{j_i}^+\s_{j_i}}}_{\textstyle H_{atoms}}~+~\underbrace{\sum_{j_{i}=1}^{N_{j}}g_{j_i}{(\s_{j_i}^{+}+\s_{j_i})(a_{j}^{+}+a_{j})}}_{\textstyle H_{interaction}} \right)
 \]
 \begin{equation}
 	+k_{j,j+1}\sum_{j=1}^{J-1}{\left(a_{j+1}^+a_j+a_{j}^+a_{j+1}\right)},
@@ -327,13 +327,13 @@ H_{\text{TCH}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_{j}}\ a_j^+a_{j}}_{\t
 \begin{quote}
 	$J$ -- количество взаимодействующих полостей (члены с индексом $j$ соответствуют $j$-й полости),\\
 	$N_{j}$ -- количество атомов в $j$-й полости,\\
-	$\sigma_{j_i}^{+},\sigma_{j_i}$ -- операторы возбуждения/релаксакции $i$-го атома в $j$-й полости,\\
+	$\s_{j_i}^{+},\s_{j_i}$ -- операторы возбуждения/релаксакции $i$-го атома в $j$-й полости,\\
 	$k_{j,j+1}$ -- интенсивность перелета фотона между $j$-й и $(j+1)$-й поло­стями.
 \end{quote}
 
 В приближении вращающейся волны (RWA) \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq} гамильтониан TCH определяется естественным образом:
 \[
-H_{\text{TCH}}^{\text{RWA}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_j}\ a_j^+a_j}_{\textstyle H_{field}}~+~\underbrace{\hbar w_{a_j}\sum_{j_{i}=1}^{N_{j}}{\sigma_{j_i}^+\sigma_{j_i}}}_{\textstyle H_{atoms}}~+~\underbrace{\sum_{j_{i}=1}^{N_{j}}g_{j_i}{(\sigma_{j_i}^+a_j+\sigma_{j_i}a_j^+)}}_{\textstyle H_{interaction}} \right)
+H_{\text{TCH}}^{\text{RWA}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_j}\ a_j^+a_j}_{\textstyle H_{field}}~+~\underbrace{\hbar w_{a_j}\sum_{j_{i}=1}^{N_{j}}{\s_{j_i}^+\s_{j_i}}}_{\textstyle H_{atoms}}~+~\underbrace{\sum_{j_{i}=1}^{N_{j}}g_{j_i}{(\s_{j_i}^+a_j+\s_{j_i}a_j^+)}}_{\textstyle H_{interaction}} \right)
 \]
 
 \begin{equation}
@@ -370,7 +370,7 @@ H_{\text{TCH}}^{\text{RWA}}~=~\sum_{j=1}^J \left(\underbrace{\hbar w_{c_j}\ a_j^
 \end{equation}
 \noindent Это уравнение описывает эволюцию замкнутой квантовой системы, взаимодей­ствие которой с внешним окружением отсутствует, либо пренебрежимо мало. Оно эквивалентно уравнению Шредингера \eqref{schrodinger} и легко выводится из него.
 
-Уравнение \eqref{klgs} называется основным квантовым уравнением Ко­саковского–Линдблада–Глаубера–Сударшана \cite{breuer}. Оно является обобще­нием уравнения \eqref{neumann} и описывает изменение во времени матрицы плотности системы, взаимодействующей со стационарной средой, не имеющей долговре­менной памяти.
+Уравнение \eqref{klgs} называется основным квантовым уравнением Ко­саковского–Линдблада–Глаубера–Сударшана \cite{breuer,kossakowski,lindblad}. Оно является обобще­нием уравнения \eqref{neumann} и описывает изменение во времени матрицы плотности системы, взаимодействующей со стационарной средой, не имеющей долговре­менной памяти.
 
 Задача компьютерного моделирования — нахождение численного решения $\rho(t)$ уравнения \eqref{klgs}, которое можно произвести с использованием различных численных методов: как простых (наподобие метода Эйлера), так и более точ­ных (наподобие метода Рунге-Кутты).
 
