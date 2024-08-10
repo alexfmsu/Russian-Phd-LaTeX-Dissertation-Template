@@ -1,17 +1,18 @@
 \chapter{Коллективные осцилляции многоатомных ансамблей}\label{ch:ch1}
-В данной главе мы рассмотрим важный тип динамики --- осцилляции между возбужденным состоянием атомного ансамбля и поля, при которых вся энергия системы переходит от атомов к полю и обратно с большой амплитудой. В многоатомном ансамбле имеется множество состояний, по которым амплитуда распределяется в ходе процесса так, что ее концентрация на строго неравновесных состояниях не является очевидной и не может быть непосредственно выведена из вида гамильтониана. Само существование таких осцилляций не следует естественным образом из подобных осцилляций Раби для одного атома \cite{rabi_1,rabi_2,rabi_3}. В случае сложных систем такие осцилляции могут быть проанализированы только в результате численного компьютерного и суперкомпьютерного моделирования.
+В данной главе мы рассмотрим важный тип динамики --- осцилляции между возбужденным состоянием атомного ансамбля и полем, при которых вся энергия системы переходит от атомов к полю и обратно с большой амплитудой. В многоатомном ансамбле имеется множество состояний, по которым амплитуда распределяется в ходе процесса так, что ее концентрация на строго неравновесных состояниях не является очевидной и не может быть непосредственно выведена из вида гамильтониана. Само существование таких осцилляций не следует естественным образом из подобных осцилляций Раби для одного атома \cite{rabi_1,rabi_2,rabi_3}. В случае сложных систем такие осцилляции могут быть проанализированы только в результате численного компьютерного и суперкомпьютерного моделирования.
 
 \section{Постановка задачи}\label{sec:ch1/sec1}
-\noindent Пусть ансамбль двухуровневых атомов разделен на две равные половины $A_1$ и $A_2$ с номерами $1,2,...,n/2$ и $(n/2+1),\dots,n$ соответственно и первоначально в полости находится $m$ фотонов (<<накачка>>).
+\vspace{-1em}
+\noindent Пусть ансамбль $2n$ двухуровневых атомов разделен на две равные половины $A_1$ и $A_2$ с номерами $1,2,...,n$ и $(n+1),\dots,2n$ соответственно и первоначально в полости находится $m$ фотонов (<<накачка>>).
 \\[12pt]
 Рассмотрим два состояния
 \begin{equation}\label{main}
 	\begin{split}
-		|\Psi_0\ra=|m\ra_{\mathrm{ph}}|0\dots0\ra_{\mathrm{A_{1}}} |1\dots1\ra_{\mathrm{A_{2}}},\\
-		|\Psi_1\ra=|m\ra_{\mathrm{ph}}|1\dots1\ra_{\mathrm{A_{1}}} |0\dots0\ra_{\mathrm{A_{2}}}.
+		|\Psi_0\ra=|m\ra_{\mathrm{ph}}|\protect\underbrace{0\dots0}_{n}\ra_{\mathrm{A_{1}}} |\protect\underbrace{1\dots1}_{n}\ra_{\mathrm{A_{2}}},\\
+		|\Psi_1\ra=|m\ra_{\mathrm{ph}}|\protect\underbrace{1\dots1}_{n}\ra_{\mathrm{A_{1}}} |\protect\underbrace{0\dots0}_{n}\ra_{\mathrm{A_{2}}}.
 	\end{split}
 \end{equation}
-Переходы между этими состояниями в ходе унитарной динамики называются \textbf{ансамблевыми осцилляциями}. Качество таких осцилляций определяется естественным образом с помощью функций 
+Переходы между этими состояниями в ходе квантовой динамики называются \textbf{ансамблевыми осцилляциями}. Качество таких осцилляций в случае унитарной динамики определяется естественным образом с помощью функций 
 \begin{equation}
 	\begin{split}
 		\displaystyle f_0(t)=|\la \Psi_0 |\Psi(t)\ra |^2,\\f_1(t)=|\la \Psi_1 |\Psi(t)\ra |^2,
@@ -37,7 +38,7 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 	\label{1.1}
 	\{k_{\mathrm{A}}\Succ\footnote{для обозначений $\{\mathlarger{\Succ}$, $\mathlarger{\Prec}\}$ будем использовать кет-бра формализм} = \frac{1}{\sqrt{C_{n}^{k}}}\sum_{j \in J(\mathrm{A}):\ w(j) = k}|j\ra,
 \end{equation}
-где $w(j)$ --- вес Хэмминга двоичного кортежа $j$, равный числу единиц в нем, что соответствует количеству возбужденных атомов в состоянии $|j\ra$. 
+где $w(j)$ --- вес Хэмминга двоичного набора $j$, равный числу единиц в нем, что соответствует количеству возбужденных атомов в состоянии $|j\ra$. 
 Отметим также, что введенные таким образом многоатомные состояния взаимно ортогональны в силу того, что не имеют общих базисных компонент.
 
 Пусть $\mathcal{L}_{\mathrm{A}}$ --- линейная оболочка состояний вида $|\mathrm{ph}\ra\{k_{\mathrm{A}}\Succ\ \ \forall k = \overline{0,|\mathrm{A}|},\  \mathrm{ph} = 0, 1, ...$, где $|\mathrm{ph}\ra$ --- фоковское состояние поля \cite{landau,belousov,messia} (число фотонов) в полости оптического резонатора. Рассмотрим ограничение $\tilde{H}_{\mathrm{TC}}^{\mathrm{A}}$ гамильтониана Тависа-Каммингса $H_{\mathrm{TC}}$ на подпространство $\mathcal{L}_{\mathrm{A}}$. Этот гамильтониан может быть представлен в новом базисе, состоящем из равномерных состояний. Его матрица будет иметь вид
@@ -73,7 +74,7 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 Для второго равенства:
 \begin{itemize}
 	\item[$\diamond$]{
-		коэффициент $\sqrt{p+1}$ следует из вида операторов рождения/уничтожения фотонов: 
+		коэффициент $\sqrt{p+1}$ следует из вида операторов рождения/уничтожения фотонов \cite{messia}: 
 		\begin{itemize}
 			\item{$p = \mathrm{min}(i_{\mathrm{ph}}, j_{\mathrm{ph}})$,}
 			\item{$a^{+}|\mathrm{ph}\ra = \sqrt{\mathrm{ph} + 1}|\mathrm{ph} + 1\ra$,}
@@ -88,18 +89,19 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 
 Так, для системы из $n$ идентичных двухуровневых атомов можно ввести состояние атомного ансамбля --- состояние $|k_{1}k_{2}\dots k_{n}\ra$ с уровнями $\{0\Succ, \{1\Succ, \dots, \{n\Succ$. Уровни будут соответствовать суммарному числу возбуждений в ансамбле и будут отстоять друг от друга на величину $E_{k} - E_{k-1} = \hbar w,\ k = \overline{1,n}$.
 
-В последующих главах мы будем рассматривать квантовую динамику в приближении RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq} состояний вида $|\Psi_0\ra=|m\ra_{\mathrm{ph}}|0\dots0\ra_{\mathrm{A_{1}}} |1\dots1\ra_{\mathrm{A_{2}}}$ в базисе $|m\ra_{\mathrm{ph}}\{i,j\Succ_{\mathrm{at}}$, где
+В последующих разделах мы будем рассматривать квантовую динамику состояний вида \eqref{main} в базисе $|m\ra_{\mathrm{ph}}\{i,j\Succ_{\mathrm{at}}$ в рамках приближения RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq}.
 \\
-\null\qquad$|m\ra_{\mathrm{ph}}$ --- начальное фоковское (либо вакуумное) состояние поля \cite{landau,belousov,messia},
+\noindent Здесь\\
+\indent$|m\ra_{\mathrm{ph}}$ --- начальное фоковское (либо вакуумное) состояние поля \cite{landau,belousov,messia},
 \\[6pt]
-\null\qquad$\{i,j\Succ_{\mathrm{at}}\!=\!\{i\Succ_{\mathrm{A_{1}}}\{j\Succ_{\mathrm{A_{2}}}$ --- состояние (энергия возбуждения) атомных групп.
+\indent$\{i,j\Succ_{\mathrm{at}}\!=\!\{i\Succ_{\mathrm{A_{1}}}\{j\Succ_{\mathrm{A_{2}}}$ --- состояние атомных групп.
 \
-\\[0pt]
-\indent При начальном состоянии системы $|\Psi_0\ra=|m\ra_{\mathrm{ph}}|0\dots0\ra_{\mathrm{A_{1}}} |1\dots1\ra_{\mathrm{A_{2}}}$ через определенный промежуток времени вся амплитуда возбуждений второй группы атомов сконцентрируется на возбуждении первой группы атомов --- состоянии $|\Psi_1\ra=|m\ra_{\mathrm{ph}}|1\dots1\ra_{\mathrm{A_{1}}} |0\dots0\ra_{\mathrm{A_{2}}}$, и данный процесс будет повторяться. Таким образом, мы получим картину коллективных атомных осцилляций ({\color{red}рис. 2.1, 2.2, 2.3, 2.5}), аналогичных осцилляциям Раби для одного атома \cite{rabi_1,rabi_2,rabi_3}. Причина такого поведения кроется в интерференции амплитуд: для состояний вида $|m\ra_{\mathrm{ph}}\{i,j\Succ_{\mathrm{at}}$, отличных от $|\Psi_{0}\ra$ и $|\Psi_{1}\ra$, их амплитуда будет распределяться по всем этим состояниям, снижая тем самым вероятность нахождения системы в каждом из них. Данное свойство позволяет в перспективе создать процедуру переноса многокубитного квантового состояния на некоторое удаленное расстояние весьма простым способом.
+\\[6pt]
+\noindent При начальном состоянии системы $|\Psi_0\ra=|m\ra_{\mathrm{ph}}|\protect\underbrace{0\dots0}_{n}\ra_{\mathrm{A_{1}}} |\protect\underbrace{1\dots1}_{n}\ra_{\mathrm{A_{2}}}$ через определенный промежуток времени вся амплитуда возбуждений одной группы атомов сконцентрируется на возбуждении другой группы атомов --- состоянии $|\Psi_1\ra=|m\ra_{\mathrm{ph}}|\protect\underbrace{1\dots1}_{n}\ra_{\mathrm{A_{1}}} |\protect\underbrace{0\dots0}_{n}\ra_{\mathrm{A_{2}}}$, и данный процесс будет повторяться. Таким образом, мы получим картину коллективных осцилляций атомных ансамблей ({\color{red}рис. 1.1, 1.2, 1.3, 1.5}), аналогичных осцилляциям Раби для одного атома \cite{rabi_1,rabi_2,rabi_3}. Причина такого поведения кроется в интерференции амплитуд: для всех состояний, отличных от $|\Psi_{0}\ra$ и $|\Psi_{1}\ra$, их амплитуда будет распределяться по большому числу таких состояний, снижая тем самым вероятность нахождения системы в каждом из них. Данное свойство позволяет в перспективе создать процедуру переноса многокубитного квантового состояния на некоторое удаленное расстояние весьма простым способом.
 
-Отметим также, что с увеличением фотонной накачки пики амплитуд состояний $|\Psi_{0}\ra$ и $|\Psi_{1}\ra$ будут становиться все более резкими ({\color{red}рис. 2.1, 2.2, 2.3}): первоначальные, или свободные, фотоны в полости будут способствовать процессу осцилляций атомных групп.
+Отметим также, что с увеличением фотонной накачки пики амплитуд состояний $|\Psi_{0}\ra$ и $|\Psi_{1}\ra$ будут становиться все более резкими ({\color{red}рис. 1.1, 1.2}): первоначальные, или свободные, фотоны в полости будут способствовать процессу осцилляций атомных групп.
 
-В заключение главы мы также рассмотрим данную динамику в условиях, когда атомные группы разделены между полостями, взаимодействующими между собой посредством оптического волновода. Обнаруженное явление перехода состояния атомного ансамбля из одной полости в другую и его возврат в первоначальную полость ({\color{red}рис. 2.13, 2.14}) носит вполне отчетливый характер.
+В заключение главы мы также рассмотрим данную динамику в условиях, когда атомные группы разделены между полостями, взаимодействующими между собой посредством оптического волновода. Обнаруженный эффект перехода состояния атомного ансамбля из одной полости в другую и его возврат в первоначальную полость ({\color{red}рис. 1.13, 1.14}) носит вполне отчетливый характер.
 
 \clearpage
 \subsection{Осцилляции с накачкой фотонов}
@@ -107,8 +109,8 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \begin{figure}[h!]
 	\noindent\centering{
 		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/20_10/1g_0.05mks_1000nt/oscillations.png}\astfootnote\\
-		\includegraphics[width=0.6\textwidth]{Dissertation/images/section_1/20_10/1g_0.05mks_1000nt/fid.png}
-		\includegraphics[width=0.6\textwidth]{Dissertation/images/section_1/20_10/1g_5mks_1000nt/fid.png}
+		\includegraphics[width=0.63\textwidth]{Dissertation/images/section_1/20_10/1g_0.05mks_1000nt/fid.png}
+		\includegraphics[width=0.63\textwidth]{Dissertation/images/section_1/20_10/1g_5mks_1000nt/fid.png}
 		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
 		\\[6pt]
 		\caption{
@@ -123,7 +125,7 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \clearpage
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/50_25/1g_0.05mks_1000nt/oscillations.png}\astfootnote\\
+		\includegraphics[width=0.74\textwidth]{Dissertation/images/section_1/50_25/1g_0.05mks_1000nt/oscillations.png}\astfootnote\\
 		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/50_25/1g_0.05mks_1000nt/fid.png}
 		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/50_25/1g_5mks_1000nt/fid.png}
 		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
@@ -146,7 +148,7 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \begin{figure}[h!]
 	\noindent\centering{
 		\includegraphics[width=0.6\textwidth]{Dissertation/images/section_1/20_10/random/1g_0.05mks_1000nt/oscillations.png}\astfootnote\\
-		\includegraphics[width=0.5\textwidth]{Dissertation/images/section_1/20_10/random/1g_0.05mks_1000nt/fidelity.png}
+		\includegraphics[width=0.51\textwidth]{Dissertation/images/section_1/20_10/random/1g_0.05mks_1000nt/fidelity.png}
 		\captionsetup{format=hang,width=0.75\textwidth,justification=centering,singlelinecheck=no}
 		\\[18pt]
 		\caption{
@@ -161,18 +163,21 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \clearpage
 Произвольные начальные состояния вида
 \[
-|\Psi_{0}\ra = |m\ra_{\text{ph}}\sum_{\substack{\forall\lambda_{k}:~\sum_{k} \lambda_{k} = 1,\\ i,j:~i+j = 2n}}\lambda_{k}\{i\Succ_{\mathrm{A_{1}}}\{j\Succ_{\mathrm{A_{2}}},
+|\Psi_{0}\ra = |m\ra_{\text{ph}}\sum_{\substack{\forall\lambda_{k} \in C:~\sqrt{\sum\limits_{k}\lambda_{k}^{2}} = 1,\\ i,j:~i+j = 2n}}\lambda_{k}\{i\Succ_{\mathrm{A_{1}}}\{j\Succ_{\mathrm{A_{2}}},
 \]
+
+\vspace{-0.5em}
 отличные от состояний \eqref{good_ensemble}, не осциллируют.
 
 \begin{figure}[ht!]
 	\noindent\centering{
+		\vspace{2em}
 		\includegraphics[width=0.5\textwidth]{Dissertation/images/section_1/bad_random_5.png}\astfootnote\\
 		\includegraphics[width=0.5\textwidth]{Dissertation/images/section_1/bad_random_10.png}\astfootnote\\
-		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
+		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
 		\\[18pt]
 		\caption{
-			Отсутствие осцилляций групп\\с произвольно выбранными в них изначальными\\количествами атомных возбуждений
+			Отсутствие осцилляций ансамблей с произвольно выбранными в них изначальными количествами атомных возбуждений
 	}}
 \end{figure}
 \extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
@@ -208,8 +213,8 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \\[12pt]
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.95\textwidth]{Dissertation/images/section_1/bp_n/ph/1_5_15.png}
-		\includegraphics[width=0.95\textwidth]{Dissertation/images/section_1/bp_n/ph/1_15.png}
+		\includegraphics[width=0.99\textwidth]{Dissertation/images/section_1/bp_n/ph/1_5_15.png}
+		\includegraphics[width=0.99\textwidth]{Dissertation/images/section_1/bp_n/ph/1_15.png}
 		\captionsetup{format=hang,width=0.85\textwidth,justification=centering,singlelinecheck=no}
 		\caption{
 			Снижение пиковых амплитуд и нарушение\\периодичности осцилляций при увеличении числа атомов в группе\\
@@ -221,10 +226,10 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \clearpage
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.45\textwidth]{Dissertation/images/section_1/Tk/Tgk_10_015_10000.png}
-		\includegraphics[width=0.45\textwidth]{Dissertation/images/section_1/Tk/Tgk_20_015_10000.png}\\
+		\includegraphics[width=0.48\textwidth]{Dissertation/images/section_1/Tk/Tgk_10_015_10000.png}
+		\includegraphics[width=0.48\textwidth]{Dissertation/images/section_1/Tk/Tgk_20_015_10000.png}\\
 		\hspace{24pt}$n = 10$\hspace{190pt}$n = 20$\\[12pt]
-		\includegraphics[width=0.45\textwidth]{Dissertation/images/section_1/Tk/Tgk_30_015_10000.png}\\
+		\includegraphics[width=0.48\textwidth]{Dissertation/images/section_1/Tk/Tgk_30_015_10000.png}\\
 		\hspace{24pt}$n = 30$\\[12pt]
 		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
 		\caption{
@@ -240,10 +245,10 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \clearpage
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.55\textwidth]{Dissertation/images/section_1/Tk/02_10000_3.png}\\
+		\includegraphics[width=0.55\textwidth]{Dissertation/images/section_1/Tk/02_10000_3_cpy.png}\\
 		\hspace{-5em}\small{период осцилляций $\mathrm{T=3~ns = const}$}
 		\\[36pt]
-		\includegraphics[width=0.55\textwidth]{Dissertation/images/section_1/Tk/015_10000_10.png}\\
+		\includegraphics[width=0.55\textwidth]{Dissertation/images/section_1/Tk/015_10000_10_cpy.png}\\
 		\hspace{-5em}\small{период осцилляций $\mathrm{T=10~ns = const}$}
 		\\[18pt]
 		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
@@ -257,7 +262,7 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \clearpage
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.8\textwidth]{Dissertation/images/section_1/Tk/g_10_015_10000_edit2.png}
+		\includegraphics[width=0.84\textwidth]{Dissertation/images/section_1/Tk/g_10_015_10000_edit2.png}
 		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
 		\caption{Зависимость периода осцилляций от\\первоначального числа $m$ фотонов в полости\\для 10 атомов в группе при различных значениях $g$\\[12pt]
 			Начальное состояние: $|\Psi_0\ra=|m\ra_{\mathrm{ph}}\{0,10\Succ_{\mathrm{at}} = |m\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{10}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{10}\ra_{\mathrm{A}_2}$
@@ -266,14 +271,14 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.8\textwidth]{Dissertation/images/section_1/Tk/g_20_015_10000_edit2.png}
+		\includegraphics[width=0.84\textwidth]{Dissertation/images/section_1/Tk/g_20_015_10000_edit2.png}
 		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
 		\caption{Зависимость периода осцилляций от\\первоначального числа $m$ фотонов в полости\\для 20 атомов в группе при различных значениях $g$\\[12pt]
 			Начальное состояние: $|\Psi_0\ra=|m\ra_{\mathrm{ph}}\{0,20\Succ_{\mathrm{at}} = |m\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{20}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{20}\ra_{\mathrm{A}_2}$
 	}}
 \end{figure}
 
-Увеличение фотонной накачки в полости резонатора сопровождается асимптотическим стремлением к нулю периода осцилляций при различных значениях силы взаимодействия атомов с полем в границах приближения RWA.
+Увеличение числа фотонов в полости резонатора сопровождается асимптотическим стремлением к нулю периода осцилляций при различных значениях силы взаимодействия атомов с полем в границах приближения RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq}.
 
 \clearpage
 \begin{figure}[h!]
@@ -281,7 +286,7 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 		\includegraphics[width=0.73\textwidth]{Dissertation/images/section_1/bp_n/ph/w.png}
 		\includegraphics[width=0.73\textwidth]{Dissertation/images/section_1/bp_n/ph/h.png}
 		\includegraphics[width=0.73\textwidth]{Dissertation/images/section_1/bp_n/ph/w_h.png}
-		\captionsetup{format=hang,width=1.0\textwidth,justification=centering,singlelinecheck=no}
+		\captionsetup{format=hang,width=0.9\textwidth,justification=centering,singlelinecheck=no}
 		\caption{Зависимость средних значений ширины основания\\и высоты пика квадрата амплитуды <<возрожденного>>\\начального состояния от числа $n$ атомов в группе\\[12pt]Начальное состояние: $|\Psi_0\ra=|\mathrm{0}\ra_{\mathrm{ph}}\{0,n\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{n}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{n}\ra_{\mathrm{A}_2}$
 	}}
 \end{figure}
@@ -313,16 +318,16 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 Мы будем исследовать динамику состояния атомов и поля, идущую задолго до наступления термической стабилизации, рассматривая обмен фотонами с внешним резурвуаром как фактор декогерентности.
 
 \clearpage
-\subsection{Осцилляции c утечкой фотонов из полости}
+\subsection{Осцилляции в условиях фотонной утечки}
 Характерная картина ансамблевых осцилляций сохраняется при условии, когда резонатор находится в контакте с внешней средой, приводящем к постоянной утечке фотонов из полости.
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/bpl/5_5_1000ns.png}\astfootnote\\
-		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/bpl/5_5_5mks_fid.png}
+		\includegraphics[width=0.73\textwidth]{Dissertation/images/section_1/bpl/5_5_1000ns.png}\astfootnote\\
+		\includegraphics[width=0.72\textwidth]{Dissertation/images/section_1/bpl/5_5_5mks_fid.png}
 		\captionsetup{format=hang,width=0.75\textwidth,justification=centering,singlelinecheck=no}
 		\\[12pt]
 		\caption{
-			Осцилляции c утечкой фотонов из полости\\
+			Осцилляции в условиях фотонной утечки\\
 			$|\Psi_0\ra=|0\ra_{\mathrm{ph}}\{0,5\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{0 \dots 0}_{5}\ra_{\mathrm{A}_1}|\protect\underbrace{1 \dots 1}_{5}\ra_{\mathrm{A}_2}$\\
 			$|\Psi_1\ra=|0\ra_{\mathrm{ph}}\{5,0\Succ_{\mathrm{at}} = |0\ra_{\mathrm{ph}}|\protect\underbrace{1 \dots 1}_{5}\ra_{\mathrm{A}_1}|\protect\underbrace{0 \dots 0}_{5}\ra_{\mathrm{A}_2}$
 	}}
@@ -368,7 +373,158 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 Фактически такое возрождение квантовых состояний является прямым аналогом эффекта, обнаруженного и продемонстрированного экспериментально группой С. Моисеева \cite{moiseev_1,moiseev_2,moiseev_3,moiseev_4}, --- процесса поглощения пучка фотонов средой с последующим возвратом средой энергии в виде фотонного эха. Такого рода эхо представляет собой важный феномен, поскольку его можно использовать в качестве механизма организации временной квантовой памяти.
 
 \clearpage
-\subsection{Выводы главы}
+\section{Программная реализация}
+
+Алгоритм компьютерного моделирования коллективных осцилляций атомных ансамблей состоит из следующих этапов:
+\begin{enumerate}
+\item{
+	Составление матрицы $H$ гамильтониана системы \eqref{1.5}.\\[24pt]
+	К примеру, для $m = 5,~n = 3$ базис будет содержать 10 состояний:\\
+	$|5\ra_{\mathrm{ph}}\{0, 3\Succ_{\mathrm{at}}$\qquad$|4\ra_{\mathrm{ph}}\{1, 3\Succ_{\mathrm{at}}$\qquad$|3\ra_{\mathrm{ph}}\{2, 3\Succ_{\mathrm{at}}$\qquad$|2\ra_{\mathrm{ph}}\{3, 3\Succ_{\mathrm{at}}$\\
+	$|5\ra_{\mathrm{ph}}\{1, 2\Succ_{\mathrm{at}}$\qquad$|4\ra_{\mathrm{ph}}\{2, 2\Succ_{\mathrm{at}}$\qquad$|3\ra_{\mathrm{ph}}\{3, 2\Succ_{\mathrm{at}}$\\
+	$|5\ra_{\mathrm{ph}}\{2, 1\Succ_{\mathrm{at}}$\qquad$|4\ra_{\mathrm{ph}}\{3, 1\Succ_{\mathrm{at}}$\\
+	$|5\ra_{\mathrm{ph}}\{3, 0\Succ_{\mathrm{at}}$\\[24pt]
+	Число состояний в базисе из равновесных состояний будет равно\\[12pt]
+	$
+		\begin{cases}
+		\displaystyle\quad\sum\limits_{i=1}^{n+1}i = \frac{1 + (n+1)}{2} \cdot (n+1) = \frac{(n+2)(n+1)}{2},\quad m \ge n,\\[18pt]
+		\displaystyle\sum\limits_{i=n-m+1}^{n+1}i = \frac{(n-m+1) + (n+1)}{2} \cdot (m+1),\qquad\quad m < n.
+		\end{cases}		
+	$\\[12pt]
+	и его рост носит \textbf{полиномиальный} характер. 
+	\\[24pt]
+	Для системы $m = 100,~n = 100$ базис будет содержать всего 5100 состояний.
+	\\[24pt]
+	В случае использования стандартного вычислительного базиса $|m\ra_{\mathrm{ph}}|i_{1} \dots i_{n}\ra_{\mathrm{A_1}}|j_{1} \dots j_{n}\ra_{\mathrm{A_2}}$ число квантовых состояний системы определялось бы по формуле\\[12pt]
+	$
+		\begin{cases}
+		\displaystyle\quad\sum\limits_{i=n}^{2n}C_{i}^{2n} = 2^{2n-1},\qquad\qquad\qquad\qquad m \ge n,\\[18pt]
+		\displaystyle\quad\sum\limits_{i=n}^{n+m}C_{i}^{2n} = \frac{C_{n}^{2n} + C_{n+m}^{2n}}{2} \cdot m,\qquad\quad m < n.
+		\end{cases}		
+	$\\[12pt]
+	с \textbf{экспоненциальным} характером роста.
+	}
+\item{Составление вектора начального состояния в базисе равномерных состояний:\\
+$
+	|\Psi_{0}\ra = 
+	\bordermatrix{
+    	&  \cr
+    	& \vdots \cr
+    	& 1  \cr
+    	& \vdots
+	}
+	\begin{matrix}
+    	\quad\hspace{-5em}\vdots \cr
+		\quad|m\rangle_{\mathrm{ph}}\{0,~n\Succ_{\mathrm{at}} \cr
+    	\quad\hspace{-5em}\vdots
+	\end{matrix}
+$
+\\[24pt]
+В случае неунитарной динамики составляются матрица плотности начального состояния\\
+$
+	\rho(0) = |\Psi_{0}\ra\la\Psi_{0}| =
+	\bordermatrix{
+    	& & \quad |m\rangle_{\mathrm{ph}}\{0,~n\Succ_{\mathrm{at}} & \cr
+    	& \dots & \dots & \dots \cr
+    	& \dots & 1 & \dots \cr
+    	& \dots & \dots & \dots
+	}
+	\begin{matrix}
+    	\quad\hspace{-5em}\dots \cr
+		\quad|m\rangle_{\mathrm{ph}}\{0,~n\Succ_{\mathrm{at}} \cr
+    	\quad\hspace{-5em}\dots
+	\end{matrix}
+$\\
+и матрицы операторов Линдблада, соответствующих фотонной утечке.\\[6pt]
+}
+\item{\label{ch1:U}
+	Вычисление оператора эволюции $\displaystyle U_{dt} = \mathrm{exp}\biggl(\frac{-iHdt}{\hbar}\biggr)$ путем диагонализации гамильтониана $H$ и последующего вычисления матричной экспоненты:
+
+	\begin{quote}
+	для любой эрмитовой матрицы $A$ существует спектральное разложение $A = V DV^{*}$, где $V$ --- унитарная матрица, а $D$ --- вещественная диагональная.
+	Поскольку собственные значения и собственные вектора не зависят от базиса, на диагонали $D$ будут стоять собственные значения матрицы $A$, а матрица $U$ будет состоять из ее собственных векторов.
+	\\[12pt]
+	Кроме того, если
+	\[A = V\begin{pmatrix}
+	\lambda_1 &       		   &       			 & \\
+      		 & \ddots &       			 & \\
+      		 &       		   & \lambda_n &
+	\end{pmatrix}V^{*},
+	\]
+	то
+	\[\mathrm{exp}(A) = V\begin{pmatrix}
+	\mathrm{exp}(\lambda_1) &       		   &       			 & \\
+      		 & \ddots &       			 & \\
+      		 &       		   & \mathrm{exp}(\lambda_n) &
+	\end{pmatrix}V^{*}.
+	\]
+\end{quote}
+
+	Вычисление оператора $U_{dt}$ также может быть произведено с использованием программных пакетов, реализующих быстрое вычисление матричной экспоненты.
+}
+\item{\label{ch1:dynamics}
+	Вычисление унитарной динамики происходит при помощи явной схемы Эйлера: $\displaystyle|\Psi(t+dt)\ra = U_{dt}|\Psi(t)\ra.$\\
+	
+	Шаг по времени $dt$ выбирается таким образом, чтобы норма $\displaystyle\la\Psi(t+dt)|\Psi(t+dt)\ra$ вектор-состояния $\displaystyle|\Psi(t+dt)\ra$ на протяжении всего времени $T$ моделирования отличалась бы от 1 на допустимую погрешность $\epsilon = 10^{-3}, 10^{-4}, \dots$, которая выбирается опционально.\\[24pt]
+	В случае превышения данной погрешности в процессе квантовой динамики выбирается меньшее значение $\epsilon$, либо производится моделирование на меньшем временном интервале $T$.\\
+
+	При неунитарной динамике каждый шаг по времени состоит из двух этапов:
+\[
+\tilde{\rho}(t+dt)\ =\ \rho(t)+dt\cdot \frac{i}{\hbar}\cdot L(\rho(t)),
+\]
+\[
+\left(
+\begin{array}{l}
+    \text{вклад окружения открытой квантовой системы,} \\
+    \text{\qquad\qquad\qquadнеунитарная динамика}
+\end{array}
+\right)
+\]
+
+\[
+\rho(t+dt)=U_{dt}\cdot \tilde{\rho}(t+dt)\cdot U_{dt}^{*}.
+\]
+\
+\\[0pt]
+Матрица плотности $\rho(t+dt)$ должна сохранять единичный след с точностью до $\epsilon$ на протяжении всего процесса моделирования:
+\[
+|1 - \rho(t+dt)| < \epsilon.
+\]
+}
+\item{
+	Квадраты амплитуд $p_{1}, \dots, p_{N}$ вектор-состояний $|\Psi(t+dt)\ra$ (диагональные элементы матрицы плотности $\rho(t+dt)$ в случае неунитарной динамики), соответствующие вероятностям нахождения системы в базисных состояних, результируются в выходном файле формата .csv. На основе него строится график квантовой динамики моделируемой системы. 
+}
+\end{enumerate}
+\
+\\
+\indent Полный листинг программной реализации представлен в \hyperref[appendix]{приложении}.
+
+\clearpage
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=1.0\textwidth]{Dissertation/images/section_1/scheme_1.jpg}
+		\captionsetup{format=hang,width=1.0\textwidth,justification=centering,singlelinecheck=no}
+		\\[6pt]
+		\caption{
+			{\small Блок-схема: коллективные осцилляции (унитарная динамика)}
+		}
+	}
+\end{figure}
+
+\clearpage
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=1.0\textwidth]{Dissertation/images/section_1/scheme_2.jpg}
+		\captionsetup{format=hang,width=1.0\textwidth,justification=centering,singlelinecheck=no}
+		\\[6pt]
+		\caption{
+			{\small Блок-схема: коллективные осцилляции (неунитарная динамика)}
+		}
+	}
+\end{figure}
+
+\clearpage
+\section{Выводы главы}
 В настоящей главе была рассмотрена динамика квантовых состояний ансамблей двухуровневых атомов и одномодового поля в резонаторе в рамках модели Тависа-Каммингса, а также модели Тависа-Каммингса-Хаббарда для случая двух взаимодействующих полостей в приближении RWA.
 
 По результатам компьютерного моделирования:
@@ -381,5 +537,3 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \end{itemize}
 
 \indent Результаты, полученные для ансамблей, состоящих из 20 и более атомов в группе, необходимых для уверенной фиксации выявленного характера осцил­ляций, потребовали моделирования динамики как чистых, так и смешанных квантовых состояний и не могут быть получены на персональном компью­тере. Моделирование квантовой динамики производилось на графических процессорах (GPU) суперкомпьютера Ломоносов с применением технологии па­раллельных вычислений CUDA, а также пакета матричной алгебры MAGMA (Matrix Algebra on GPU and Multicore Architectures) \cite{magma}.
-\\[12pt]
-\noindent Листинг программной реализации представлен в \hyperref[appendix]{приложении}.
