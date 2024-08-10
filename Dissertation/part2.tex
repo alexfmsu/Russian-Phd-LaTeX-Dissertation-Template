@@ -46,7 +46,7 @@ H_{\text{\text{TC}}}^{\text{\text{RWA}}} = \hbar wa^{+}a + \hbar w\sum_{i=1}^{n}
 
 \noindent Ее гамильтониан:\\
 {\normalsize
-	\[
+	\[\label{ch:H}
 	H = \bordermatrix
 	{
 		&                |0\ra_{\text{\text{ph}}}|2\ra_{\text{\text{at}}} & |0\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} & |0\ra_{\text{\text{ph}}}|1\ra_{\text{\text{at}}} & |1\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} \cr
@@ -63,7 +63,7 @@ H_{\text{\text{TC}}}^{\text{\text{RWA}}} = \hbar wa^{+}a + \hbar w\sum_{i=1}^{n}
 
 \noindent Оператор уничтожения фотона (улет фотона из полости):\\
 {\normalsize
-	\[
+	\[\label{ch:L1}
 	L_{1} = \bordermatrix
 	{
 		&                |0\ra_{\text{\text{ph}}}|2\ra_{\text{\text{at}}} & |0\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} & |0\ra_{\text{\text{ph}}}|1\ra_{\text{\text{at}}} & |1\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} \cr
@@ -78,7 +78,7 @@ H_{\text{\text{TC}}}^{\text{\text{RWA}}} = \hbar wa^{+}a + \hbar w\sum_{i=1}^{n}
 
 \noindent Оператор атомного превращения:\\
 {\normalsize
-	\[
+	\[\label{ch:L2}
 	L_{2} = \bordermatrix
 	{
 		&                |0\ra_{\text{\text{ph}}}|2\ra_{\text{\text{at}}} & |0\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} & |0\ra_{\text{\text{ph}}}|1\ra_{\text{\text{at}}} & |1\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} \cr
@@ -91,25 +91,89 @@ H_{\text{\text{TC}}}^{\text{\text{RWA}}} = \hbar wa^{+}a + \hbar w\sum_{i=1}^{n}
 }
 \\
 
-\noindent Вышеперечисленные матрицы, а также матрица плотности, были реализованы как разреженные, поскольку при численном моделировании динамики для обнаружения эффекта квантового бутылочного горлышка потребовался достаточно малый шаг $dt$ по времени (в пределах 0.1-1 ns) на промежутке 1 mks. Решение основного квантового уравнения \eqref{sec2_master_eq} производилось при помощи метода Эйлера. 
+\section{Программная реализация}
 
-\noindent Каждый шаг по времени состоит из двух этапов:
+Алгоритм компьютерного моделирования квантового бутылочного горлышка состоит из следующих этапов:
+\begin{enumerate}
+\item{
+	Составление матрицы $H$ гамильтониана системы \eqref{ch:H}.\\
+}
+\item{
+Составление вектора начального состояния:\\
+$
+	|\Psi_{0}\ra = 
+	\begin{pmatrix}
+		0 \\ 
+		0 \\
+		1 \\
+		0 
+	\end{pmatrix}
+	\begin{matrix}
+    	\quad|0\ra_{\text{\text{ph}}}|2\ra_{\text{\text{at}}} \cr
+		\quad|0\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} \cr
+    	\quad|0\ra_{\text{\text{ph}}}|1\ra_{\text{\text{at}}} \cr
+    	\quad|1\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}}
+	\end{matrix}
+$
+\\[24pt]
+Составление матрицы плотности начального состояния\\[24pt]
+$
+	\rho(0) = |\Psi_{0}\ra\la\Psi_{0}| =
+	{\small	
+	\bordermatrix
+	{
+		&                |0\ra_{\text{\text{ph}}}|2\ra_{\text{\text{at}}} & |0\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} & |0\ra_{\text{\text{ph}}}|1\ra_{\text{\text{at}}} & |1\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} \cr
+		|0\ra_{\text{\text{ph}}}|2\ra_{\text{\text{at}}} &      0 &      0 &      0 & 0 \cr
+		|0\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} &      0 &      0 &      0 & 0\cr
+		|0\ra_{\text{\text{ph}}}|1\ra_{\text{\text{at}}} &      0 &      0 &      1 & 0\cr
+		|1\ra_{\text{\text{ph}}}|0\ra_{\text{\text{at}}} &      0 &      0 &      0 & 0\cr
+	}
+	}
+$\\[12pt]
+и матриц операторов Линдблада \eqref{ch:L1}, \eqref{ch:L2}, соответствующих фотонной утечке.\\
+
+Вышеперечисленные матрицы, а также матрица плотности, были реализованы как разреженные, поскольку при численном моделировании динамики для обнаружения эффекта квантового бутылочного горлышка потребовался достаточно малый шаг $dt$ по времени (в пределах 0.1-1 ns) на промежутке 1 mks.\\
+}
+\item{Вычисление оператора эволюции \eqref{ch1:U}}.\\
+\item{Моделирование квантовой динамики \eqref{ch1:dynamics}.\\
+
+Решение основного квантового уравнения \eqref{sec2_master_eq} производилось при помощи метода Эйлера.
+
+\clearpage
+\begin{figure}[h!]
+	\noindent\centering{
+		\includegraphics[width=1.0\textwidth]{Dissertation/images/section_2/scheme.jpg}
+		\captionsetup{format=hang,width=1.0\textwidth,justification=centering,singlelinecheck=no}
+		\\[6pt]
+		\caption{
+			{\small Блок-схема: квантовое бутылочное горлышко в атомных превращениях\\ \hspace{6em}(для одной пары значений интенсивностей $\gamma_{\textrm{out}}$, $\gamma_{\textrm{ex}}$)}
+		}
+	}
+\end{figure}
+
+\clearpage
+Каждый шаг по времени состоит из двух этапов:
 \[
 \tilde{\rho}(t+dt)\ =\ \rho(t)+dt\cdot \frac{i}{\hbar}\cdot L(\rho(t)),
 \]
-\begin{center}\text(неунитарная динамика: улет фотонов, атомное превращение)\end{center}
-\
-\\[0pt]
+\begin{center}
+	\text(неунитарная динамика: улет фотонов, атомное превращение)
+\end{center}
 \[
 \rho(t+dt)=U_{dt}\cdot \tilde{\rho}(t+dt)\cdot U_{dt}^{*}.
 \]
 \begin{center}\text(унитарная динамика)\end{center}
 \
 \\
-\indent Наиболее сложной задачей здесь было выявление (за разумное время) тех диапазонов интенсивностей $\gamma_{1} = \gamma_{\text{out}}$ и
-$\gamma_{2} = \gamma_{\text{ex}}$, а также их соотношения с интенсивностью фотонно-атомного взаимодействия $g$, при которых эффект квантового бутылочного горлышка был бы обнаружен, и притом, качественно.
+Наиболее сложной задачей здесь было выявление (за разумное время) тех диапазонов интенсивностей $\gamma_{1} = \gamma_{\text{out}}$ и
+$\gamma_{2} = \gamma_{\text{ex}}$, а также их соотношения с интенсивностью фотонно-атомного взаимодействия $g$, при которых эффект квантового бутылочного горлышка был бы обнаружен, и притом, качественно.\\[12pt]
 
-Представленные ниже результаты компьютерного моделирования были получены на суперкомпьютере Ломоносов-2 \cite{lomonosov_2}. Вычисления производились параллельно на 100 процессорных узлах: каждый узел моделировал квантовую динамику для конкретного значения $\gamma_{1} = \gamma_{\text{out}}$ и всего выбранного диапазона $\gamma_{2} = \gamma_{\text{ex}}$. Также в ходе численного эксперимента анализировалась квантовая картина для диапазона $g \in [0.001 \cdot w,~0.1 \cdot w]$ --- как для условий ультраслабого взаимодействия, так и для условий границы применимости приближения RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq} в модели ТС.
+Представленные ниже результаты компьютерного моделирования были получены на суперкомпьютере Ломоносов-2 \cite{lomonosov_2}. Вычисления производились параллельно на 100 процессорных узлах: каждый узел моделировал квантовую динамику для конкретного значения $\gamma_{1} = \gamma_{\text{out}}$ и всего выбранного диапазона $\gamma_{2} = \gamma_{\text{ex}}$.\\[12pt]
+
+Также в ходе численного эксперимента анализировалась квантовая картина для диапазона $g \in [0.001 \cdot w,~0.1 \cdot w]$ --- как для условий ультраслабого взаимодействия, так и для условий границы применимости приближения RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq} в модели ТС.
+}
+\end{enumerate}
+
 
 \section{Результаты компьютерного моделирования}\label{sec:ch2/sec3}
 Здесь будут приведены результаты компьютерного моделирования влияния эффекта квантового бутылочного горлышка на вероятность атомного превращения при различных параметрах квантовой системы.
@@ -117,14 +181,14 @@ $\gamma_{2} = \gamma_{\text{ex}}$, а также их соотношения с 
 \clearpage
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_2/01.png}	\captionsetup{format=hang,width=0.85\textwidth,justification=centering,singlelinecheck=no}
+		\includegraphics[width=0.75\textwidth]{Dissertation/images/section_2/01.png}	\captionsetup{format=hang,width=0.85\textwidth,justification=centering,singlelinecheck=no}
 		\caption{
 			Зависимость вероятности превращения атома\\от интенсивности $\gamma_{\text{out}}$ вылета фотона и времени $t$\\
 			$\gamma_{\text{out\_min}} = g \qquad \gamma_{\text{out\_max}} = 10g \qquad \gamma_{\text{ex}} = g$
 		}
 		\
 		\\[28pt]
-		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_2/02.png}	\captionsetup{format=hang,width=0.85\textwidth,justification=centering,singlelinecheck=no}
+		\includegraphics[width=0.75\textwidth]{Dissertation/images/section_2/02.png}	\captionsetup{format=hang,width=0.85\textwidth,justification=centering,singlelinecheck=no}
 		\caption{
 			Зависимость вероятности превращения атома\\от интенсивности $\gamma_{\text{out}}$ вылета фотона и времени $t$\\
 			$\gamma_{\text{out\_min}} = 0.01g \qquad \gamma_{\text{out\_max}} = 10g \qquad \gamma_{\text{ex}} = g$
