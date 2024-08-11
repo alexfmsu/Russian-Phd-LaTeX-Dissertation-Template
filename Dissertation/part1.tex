@@ -89,7 +89,7 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 
 Так, для системы из $n$ идентичных двухуровневых атомов можно ввести состояние атомного ансамбля --- состояние $|k_{1}k_{2}\dots k_{n}\ra$ с уровнями $\{0\Succ, \{1\Succ, \dots, \{n\Succ$. Уровни будут соответствовать суммарному числу возбуждений в ансамбле и будут отстоять друг от друга на величину $E_{k} - E_{k-1} = \hbar w,\ k = \overline{1,n}$.
 
-В последующих разделах мы будем рассматривать квантовую динамику состояний вида \eqref{main} в базисе $|m\ra_{\mathrm{ph}}\{i,j\Succ_{\mathrm{at}}$ в рамках приближения RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq}.
+В последующих разделах мы будем рассматривать квантовую динамику состояний вида \eqref{main} в базисе $|m\ra_{\mathrm{ph}}\{i,j\Succ_{\mathrm{at}}$ в рамках приближения RWA \cite{ozhigov_qq,rwa_rabi_1,rwa_rabi_2}.
 \\
 \noindent Здесь\\
 \indent$|m\ra_{\mathrm{ph}}$ --- начальное фоковское (либо вакуумное) состояние поля \cite{landau,belousov,messia},
@@ -278,7 +278,7 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 	}}
 \end{figure}
 
-Увеличение числа фотонов в полости резонатора сопровождается асимптотическим стремлением к нулю периода осцилляций при различных значениях силы взаимодействия атомов с полем в границах приближения RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq}.
+Увеличение числа фотонов в полости резонатора сопровождается асимптотическим стремлением к нулю периода осцилляций при различных значениях силы взаимодействия атомов с полем в границах приближения RWA \cite{ozhigov_qq,rwa_rabi_1,rwa_rabi_2}.
 
 \clearpage
 \begin{figure}[h!]
@@ -296,7 +296,7 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \clearpage
 \subsection{Модель Тависа-Каммингса: взаимодействие с внешним окружением}
 
-Рассмотрим модель Тависа-Каммингса в приближении RWA \cite{rwa_rabi_1,rwa_rabi_2,ozhigov_qq} для $n$ двухуровневых атомов, имеющих разные координаты внутри полости. Пусть энергии возбуждения атомов равны $\hbar w_{a_{i}}$ и отличаются от энергии фотонов $\hbar w_{c}$ малой расстройкой $d_i=|\hbar w_{c}-\hbar w_{a_{i}}|$. Гамильтониан такой системы имеет вид
+Рассмотрим модель Тависа-Каммингса в приближении RWA \cite{ozhigov_qq,rwa_rabi_1,rwa_rabi_2} для $n$ двухуровневых атомов, имеющих разные координаты внутри полости. Пусть энергии возбуждения атомов равны $\hbar w_{a_{i}}$ и отличаются от энергии фотонов $\hbar w_{c}$ малой расстройкой $d_i=|\hbar w_{c}-\hbar w_{a_{i}}|$. Гамильтониан такой системы имеет вид
 \begin{equation}
 	\label{TC}
 	H_{\text{TC}}^{\text{RWA}}=\hbar w_{c} a^+a+\hbar \sum\limits_{i=1}^{n}w_{a_{i}}\s^{+}_i\s_i+a\bar\s^{+}+a^{+}\bar\s,
@@ -335,41 +335,63 @@ F_1(t)=\biggl(Tr\sqrt{\sqrt{\rho_1}\ \rho(t)\ \sqrt{\rho_1}}\biggr)^{2}
 \extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
 
 \subsection{Возрождение состояний атомных ансамблей в системе оптических полостей}
-Группы атомов $\mathrm{A}_1$ и $\mathrm{A}_2$, распределенные между полостями, дают хорошие осцилляции при достаточно большой амплитуде $\mu$ перехода возбуждений между полостями ($\mu>g$). 
+\vspace{-2em}
+Группы атомов $\mathrm{A}_1$ и $\mathrm{A}_2$, распределенные между полостями (модель Тависа-Каммингса-Хаббарда \cite{tch_photon_blockade,tch_transfer,tch_quality}), дают хорошие осцилляции при достаточно большой амплитуде $k$ перехода возбуждений между полостями. 
 \\[12pt]
-Моделирование следующей динамики проводилось для 10 атомов в каждой полости при $\mu \approx 3.5g$.
+\noindent Состояние системы описывается вектором\\
+$|\Psi\ra=|m_1\ra_{\mathrm{ph}_\mathrm{1}}|m_2\ra_{\mathrm{ph}_{\mathrm{2}}}\{i, j\Succ_{\mathrm{at}} = |m_1\ra_{\mathrm{ph}_\mathrm{1}}|m_2\ra_{\mathrm{ph}_{\mathrm{2}}}|\protect\underbrace{i_1 \dots i_{n_1}}_{n_1}\ra_{\mathrm{at_1}}|\protect\underbrace{j_1 \dots j_{n_2}}_{n_2}\ra_{\mathrm{at_2}}$, где
+
+%Начальное состояние $|\Psi_0\ra=|\mathrm{0}\ra_{\mathrm{ph}_\mathrm{1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{2}}}\{0, n_{2}\Succ_{\mathrm{at}} = |\mathrm{0}\ra_{\mathrm{ph}_\mathrm{1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{2}}}|\protect\underbrace{0 \dots 0}_{n_1}\ra_{\mathrm{at_1}}|\protect\underbrace{1 \dots 1}_{n_2}\ra_{\mathrm{at_2}}$
+
+\indent$|m_1\ra_{\mathrm{ph}_\mathrm{1}}$ --- состояние поля полости 1,
+\\[6pt]
+\indent$|m_2\ra_{\mathrm{ph}_{\mathrm{2}}}$ --- состояние поля полости 2,
+\\[6pt]
+\indent$\{i,j\Succ_{\mathrm{at}} = \{i\Succ_{\mathrm{at_1}}\{j\Succ_{\mathrm{at_2}}$ --- состояние атомных групп $\mathrm{A}_1, \mathrm{A}_2$.
 \\[12pt]
-Начальное состояние $|\Psi_0\ra=|\mathrm{vac}\ra_{\mathrm{ph}_\mathrm{I}}|\mathrm{vac}\ra_{\mathrm{ph}_{\mathrm{II}}}\{0, n\Succ_{\mathrm{at}}$, где
-\\
-\indent$|\mathrm{vac}\ra_{\mathrm{ph}_\mathrm{I}}$ --- начальное вакуумное состояние поля I полости,
-\\[6pt]
-\indent$|\mathrm{vac}\ra_{\mathrm{ph}_{\mathrm{II}}}$ --- начальное вакуумное состояние поля II полости,
-\\[6pt]
-\indent$\{i,j\Succ_{\mathrm{at}} = \{i\Succ_{\mathrm{I}}\{j\Succ_{\mathrm{II}}$ --- состояние атомных групп $\mathrm{A}_1, \mathrm{A}_2$.
+Моделирование следующей динамики проводилось для 10 атомов в каждой полости при $k \approx 3.5g$.
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.55\textwidth]{Dissertation/images/section_1/bp2/10_10_250ns.png}
-		\includegraphics[width=0.5\textwidth]{Dissertation/images/section_1/bp2/10_10_250ns_fid.png}
-		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
+		\includegraphics[width=0.55\textwidth]{Dissertation/images/section_1/bp2/10_10_250ns.png}\astfootnote\\
+		\captionsetup{format=hang,width=1.0\textwidth,justification=centering,singlelinecheck=no}
 		\\[6pt]
-		\caption{$|\Psi_0\ra=|\mathrm{vac}\ra_{\mathrm{ph}_\mathrm{I}}|\mathrm{vac}\ra_{\mathrm{ph}_{\mathrm{II}}}\{0\Succ_{\mathrm{I}}\{10\Succ_{\mathrm{II}}$\\
-			коллапсы и возрождения ансамблевых\\состояний между полостями
+		\caption{Коллапсы и возрождения ансамблевых\\ \hspace{2.5em}состояний между полостями\\
+		$|\Psi_0\ra=|\mathrm{0}\ra_{\mathrm{ph}_\mathrm{1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{2}}}\{0,10\Succ_{\mathrm{at}} = |\mathrm{0}\ra_{\mathrm{ph}_\mathrm{at_1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{at_2}}}\{0\Succ_{\mathrm{1}}\{10\Succ_{\mathrm{at_2}}$\\
+		$|\Psi_1\ra=|\mathrm{0}\ra_{\mathrm{ph}_\mathrm{1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{2}}}\{10,0\Succ_{\mathrm{at}} = |\mathrm{0}\ra_{\mathrm{ph}_\mathrm{at_1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{at_2}}}\{10\Succ_{\mathrm{1}}\{0\Succ_{\mathrm{at_2}}$			
 	}}
 \end{figure}
+\extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
 
 \clearpage
-Для 20 атомов в группе была численно найдена граница возникновения осцилляций: амплитуда перехода возбуждений между полостями, равная $\mu \approx 5g$.
+Для 20 атомов в группе была численно найдена граница возникновения осцилляций: амплитуда перехода возбуждений между полостями, равная $k \approx 5g$.
+\vspace{-1em}
 \begin{figure}[h!]
 	\noindent\centering{
-		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/bp2/20_20_250ns.png}
-		\includegraphics[width=0.65\textwidth]{Dissertation/images/section_1/bp2/20_20_250ns_fid.png}
-		\captionsetup{format=hang,width=0.8\textwidth,justification=centering,singlelinecheck=no}
-		\\[12pt]
-		\caption{$|\Psi_0\ra=|\mathrm{vac}\ra_{\mathrm{ph}_\mathrm{I}}|\mathrm{vac}\ra_{\mathrm{ph}_{\mathrm{II}}}\{0\Succ_{\mathrm{I}}\{20\Succ_{\mathrm{II}}$\\
-			высокое качество осцилляций, близкое к 0.8,\\
-			коллапсы и возрождения ансамблевых состояний}}
+		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/bp2/20_20_250ns.png}\astfootnote\\
+		\includegraphics[width=0.7\textwidth]{Dissertation/images/section_1/bp2/20_20_250ns_fid.png}
+		\captionsetup{format=hang,width=1.0\textwidth,justification=centering,singlelinecheck=no}
+		\\[6pt]
+		\caption{Коллапсы и возрождения ансамблевых\\ \hspace{2.5em}состояний между полостями\\
+		$|\Psi_0\ra=|\mathrm{0}\ra_{\mathrm{ph}_\mathrm{1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{2}}}\{0,20\Succ_{\mathrm{at}} = |\mathrm{0}\ra_{\mathrm{ph}_\mathrm{1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{2}}}\{0\Succ_{\mathrm{1}}\{20\Succ_{\mathrm{2}}$\\
+		$|\Psi_1\ra=|\mathrm{0}\ra_{\mathrm{ph}_\mathrm{1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{2}}}\{20,0\Succ_{\mathrm{at}} = |\mathrm{0}\ra_{\mathrm{ph}_\mathrm{1}}|\mathrm{0}\ra_{\mathrm{ph}_{\mathrm{2}}}\{20\Succ_{\mathrm{1}}\{0\Succ_{\mathrm{2}}$\\[12pt]
+			высокое качество осцилляций, близкое к 0.8\vspace{-0.5em}
+			{\small
+			\[
+			\left( 
+				\begin{array}{c}
+				\text{\textrm{вероятность возрождения коллективного состояния}} \\
+				\text{\textrm{атомного ансамбля в другой полости}}
+				\end{array} 
+			\right)
+			\]
+			}
+		}
+	}
 \end{figure}
+\extrafootertext{\hspace{-2em}{\color{red}*}на вертикальной оси --- вероятность $p(t)$ получения состояния $\{i,j\Succ_{\mathrm{at}}$ в момент времени $t$,\\\indent\hspace{-0.5em}на горизонтальных --- рассматриваемый временной интервал и состояния системы $|\Psi_0\ra$, $|\Psi_1\ra$}
 
+\clearpage
+\section{Анализ полученных результатов}
 Фактически такое возрождение квантовых состояний является прямым аналогом эффекта, обнаруженного и продемонстрированного экспериментально группой С. Моисеева \cite{moiseev_1,moiseev_2,moiseev_3,moiseev_4}, --- процесса поглощения пучка фотонов средой с последующим возвратом средой энергии в виде фотонного эха. Такого рода эхо представляет собой важный феномен, поскольку его можно использовать в качестве механизма организации временной квантовой памяти.
 
 \clearpage
