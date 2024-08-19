@@ -471,19 +471,21 @@ $\\
 	Поскольку собственные значения и собственные вектора не зависят от базиса, на диагонали $D$ будут стоять собственные значения матрицы $A$, а матрица $U$ будет состоять из ее собственных векторов.
 	\\[12pt]
 	Кроме того, если
-	\[A = V\begin{pmatrix}
+	\begin{equation}
+	A = V\begin{pmatrix}
 	\lambda_1 &       		   &       			 & \\
       		 & \ddots &       			 & \\
       		 &       		   & \lambda_n &
 	\end{pmatrix}V^{*},
-	\]
+	\end{equation}
 	то
-	\[\mathrm{exp}(A) = V\begin{pmatrix}
+	\begin{equation}
+	\hspace{2.5em}\mathrm{exp}(A) = V\begin{pmatrix}
 	\mathrm{exp}(\lambda_1) &       		   &       			 & \\
       		 & \ddots &       			 & \\
       		 &       		   & \mathrm{exp}(\lambda_n) &
 	\end{pmatrix}V^{*}.
-	\]
+	\end{equation}
 \end{quote}
 
 	Вычисление оператора $U_{dt}$ также может быть произведено с использованием программных пакетов, реализующих быстрое вычисление матричной экспоненты.
