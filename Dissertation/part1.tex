@@ -399,33 +399,38 @@ $|\Psi\ra=|m_1\ra_{\mathrm{ph}_\mathrm{1}}|m_2\ra_{\mathrm{ph}_{\mathrm{2}}}\{i,
 Алгоритм компьютерного моделирования коллективных осцилляций атомных ансамблей состоит из следующих этапов:
 \begin{enumerate}
 \item{
-	Составление матрицы $H$ гамильтониана системы \eqref{1.5}.\\[24pt]
-	К примеру, для $m = 5,~n = 3$ базис будет содержать 10 состояний:\\
+	Составление матрицы $H$ гамильтониана системы \eqref{1.5}\\[24pt]
+	К примеру, для $m = 5,~n = 3$ базис будет состоять из 10 состояний:\\
 	$|5\ra_{\mathrm{ph}}\{0, 3\Succ_{\mathrm{at}}$\qquad$|4\ra_{\mathrm{ph}}\{1, 3\Succ_{\mathrm{at}}$\qquad$|3\ra_{\mathrm{ph}}\{2, 3\Succ_{\mathrm{at}}$\qquad$|2\ra_{\mathrm{ph}}\{3, 3\Succ_{\mathrm{at}}$\\
 	$|5\ra_{\mathrm{ph}}\{1, 2\Succ_{\mathrm{at}}$\qquad$|4\ra_{\mathrm{ph}}\{2, 2\Succ_{\mathrm{at}}$\qquad$|3\ra_{\mathrm{ph}}\{3, 2\Succ_{\mathrm{at}}$\\
 	$|5\ra_{\mathrm{ph}}\{2, 1\Succ_{\mathrm{at}}$\qquad$|4\ra_{\mathrm{ph}}\{3, 1\Succ_{\mathrm{at}}$\\
 	$|5\ra_{\mathrm{ph}}\{3, 0\Succ_{\mathrm{at}}$\\[24pt]
-	Число состояний в базисе из равновесных состояний будет равно\\[12pt]
-	$
+	Размерность базиса из равновесных состояний равна
+	\begin{fleqn}
+	\begin{equation}
 		\begin{cases}
 		\displaystyle\quad\sum\limits_{i=1}^{n+1}i = \frac{1 + (n+1)}{2} \cdot (n+1) = \frac{(n+2)(n+1)}{2},\quad m \ge n,\\[18pt]
-		\displaystyle\sum\limits_{i=n-m+1}^{n+1}i = \frac{(n-m+1) + (n+1)}{2} \cdot (m+1),\qquad\quad m < n.
+		\displaystyle\sum\limits_{i=n-m+1}^{n+1}i = \frac{(n-m+1) + (n+1)}{2} \cdot (m+1),\qquad\quad m < n
 		\end{cases}		
-	$\\[12pt]
+	\end{equation}
+	\end{fleqn}
 	и его рост носит \textbf{полиномиальный} характер. 
 	\\[24pt]
-	Так, для системы $m = 100,~n = 100$ базис будет содержать всего 5100 состояний.
+	Так, для системы $m = 100,~n = 100$ такой базис будет содержать всего 5151 состояние.
 	\\[24pt]
-	В случае использования стандартного вычислительного базиса $|m\ra_{\mathrm{ph}}|i_{1} \dots i_{n}\ra_{\mathrm{A_1}}|j_{1} \dots j_{n}\ra_{\mathrm{A_2}}$ число квантовых состояний системы определялось бы по формуле\\[12pt]
-	$
+	В случае использования стандартного вычислительного базиса $|m\ra_{\mathrm{ph}}|i_{1} \dots i_{n}\ra_{\mathrm{A_1}}|i_{n+1} \dots i_{2n}\ra_{\mathrm{A_2}}$ число квантовых состояний системы определялось бы по формуле
+	\begin{fleqn}
+	\begin{equation}
 		\begin{cases}
 		\displaystyle\quad\sum\limits_{i=n}^{2n}C_{i}^{2n} = 2^{2n-1},\qquad\qquad\qquad\qquad m \ge n,\\[18pt]
-		\displaystyle\quad\sum\limits_{i=n}^{n+m}C_{i}^{2n} = \frac{C_{n}^{2n} + C_{n+m}^{2n}}{2} \cdot m,\qquad\quad m < n.
-		\end{cases}		
-	$\\[12pt]
-	с \textbf{экспоненциальным} характером роста.
+		\displaystyle\quad\sum\limits_{i=n}^{n+m}C_{i}^{2n} = \frac{C_{n}^{2n} + C_{n+m}^{2n}}{2} \cdot m,\qquad\quad m < n
+		\end{cases}
+	\end{equation}
+	\end{fleqn}
+	и росло \textbf{экспоненциально} с увеличением $n$.
 	}
-\item{Составление вектора начального состояния в базисе равномерных состояний:\\
+\clearpage
+\item{Составление вектора начального состояния в базисе равномерных состояний\\
 $
 	|\Psi_{0}\ra = 
 	\bordermatrix{
